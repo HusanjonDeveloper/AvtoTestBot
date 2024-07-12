@@ -1,0 +1,15 @@
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/TestBot
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/TestBot.deps.json
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/TestBot.runtimeconfig.json
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/TestBot.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/TestBot.pdb
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.GeneratedMSBuildEditorConfig.editorconfig
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.csproj.CoreCompileInputs.cache
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/refint/TestBot.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.pdb
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.genruntimeconfig.cache
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/ref/TestBot.dll
