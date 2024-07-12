@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jyLdJ+09vNhsPZEyKk+aEESrUJXI2ZStN/yPefObSDoJ4My3NENEFfLiUtJ7tF4YbPOD10X4nTpc0CDX+v+t7Q==",
+  "dgSpecHash": "/pGgLh9Vtyh0CSJm0mlnWx1FIT4DU4fVs4iUL/64LY2sKMvmfSZuwh/a85liY2H9BfZQQV59bqtOL+0mwcxFKQ==",
   "success": true,
   "projectFilePath": "/Users/a1234/RiderProjects/AvtoTestBot/TestBot/TestBot.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/a1234/.nuget/packages/jfa.telegram.console/1.0.2/jfa.telegram.console.1.0.2.nupkg.sha512",
+    "/Users/a1234/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/a1234/.nuget/packages/newtonsoft.json.bson/1.0.3-beta1/newtonsoft.json.bson.1.0.3-beta1.nupkg.sha512",
+    "/Users/a1234/.nuget/packages/telegram.bot/18.0.0/telegram.bot.18.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

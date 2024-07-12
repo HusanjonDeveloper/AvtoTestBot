@@ -13,3 +13,9 @@
 /Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.pdb
 /Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.genruntimeconfig.cache
 /Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/ref/TestBot.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/JFA.Telegram.Console.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/bin/Debug/net7.0/Telegram.Bot.dll
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.csproj.AssemblyReference.cache
+/Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.csproj.Up2Date

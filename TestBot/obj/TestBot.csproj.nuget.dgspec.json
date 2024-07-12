@@ -37,6 +37,20 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "JFA.Telegram.Console": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Newtonsoft.Json.Bson": {
+              "target": "Package",
+              "version": "[1.0.3-beta1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
