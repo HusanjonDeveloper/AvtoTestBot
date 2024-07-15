@@ -4,5 +4,6 @@ public enum Step
 {
     AskName,
     SaveName,
-    SavePhoneNumber
+    SavePhoneNumber,
+    ChooseMenu
 }
