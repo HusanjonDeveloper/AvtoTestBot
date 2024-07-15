@@ -1,6 +1,7 @@
 ﻿using JFA.Telegram.Console;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using TestBot.Entities;
 using TestBot.Services;
@@ -176,14 +177,38 @@ class Program
 
                 if (ticket.Result is not null)
                     TellAboutResult(user,ticket.Result);
-                
 
-                for (int i = 20*(tickedId -1) + 1; i <= tickedId*20;  i++)
+                for (int i = 20*(tickedId -1) + 1 ; i <= tickedId*20; i++)
                 {
-                    
+                    SendTest(user:user,testId:i);
                 }
             }
 
+            void SendTest(User user, int testId)
+            {
+                var test = testService.Tests.Find(x => x.Id == testId);
+
+                List<string> options = new();
+
+                int correctId = 0;
+                
+                for(int i = 0; i < test?.Choices.Count; i++)
+                {
+                    options.Add(test.Choices[i].Text);
+                    
+                    if (test.Choices[i].Answer)
+                    {
+                        correctId = i ;
+                    }
+                }
+
+                bot.SendPollAsync(user.ChatId, test!.Question,
+                    options: options, 
+                    correctOptionId: correctId,
+                    isAnonymous: false,
+                    type:PollType.Quiz,
+                    closeDate:DateTime.Now.AddMinutes(1));
+            } 
             void TellAboutResult(User user, Result result)
             {
                 var text = "You took this ticket before. \n" +
