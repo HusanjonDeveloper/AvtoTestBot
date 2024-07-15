@@ -5,5 +5,7 @@ public enum Step
     AskName,
     SaveName,
     SavePhoneNumber,
-    ChooseMenu
+    ChooseMenu,
+    ChooseTicket,
+    YesOrNo
 }
