@@ -30,7 +30,7 @@ public static class StaticService
         {
             chatId = update.CallbackQuery.Message.From.Id;
             username = update.CallbackQuery.Message.From.Username;
-            message = update.CallbackQuery.Message.Text!;
+            message = update.CallbackQuery.Data!;
             chesk = false;
         }
         else

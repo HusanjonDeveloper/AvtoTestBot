@@ -35,6 +35,7 @@ class Program
                 return;
 
             var user = userService.AddUser(chatId, username);
+            Console.WriteLine(message);
 
             switch (user.UserStep)
             {
@@ -146,7 +147,7 @@ class Program
 
                 for (int i = 1; i < 36; i++)
                 {
-                    var row = InlineKeyboardButton.WithCallbackData($"{i}");
+                    var row = InlineKeyboardButton.WithCallbackData($"{i}",callbackData:$"{i}");
                     
                      rows.Add(row);
                     if (i % 7 == 0)
@@ -157,6 +158,10 @@ class Program
                 }
 
                 var keybord = new InlineKeyboardMarkup(buttoms);
+                
+                user.UserStep = Step.ChooseTicket;
+                userService.UpdateUsser();
+                
                 bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",replyMarkup: keybord);
             }
 
