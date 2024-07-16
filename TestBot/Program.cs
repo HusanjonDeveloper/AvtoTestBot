@@ -25,16 +25,18 @@ class Program
         var bot = botManager.Create("7237808186:AAGnu416wExiX-yZw6XgZct4Dxj8B_mx67M");
 
         botManager.Start(BotFunction);
+        return;
 
 
         void BotFunction(Update update)
         {
-            var (chatId, username, message, chesk) = StaticService.GetData(update: update);
+            var (chatId, username, message, messageId,chesk) = StaticService.GetData(update: update);
 
             if (chesk)
                 return;
 
             var user = userService.AddUser(chatId, username);
+            
             Console.WriteLine(message);
 
             switch (user.UserStep)
@@ -43,7 +45,7 @@ class Program
                 case Step.SaveName: SaveName(user,message);break;
                case Step.SavePhoneNumber: SavePhoneNumber(user, update); break;
                case Step.ChooseMenu: ChooseMenu(user, message);break;
-               case Step.ChooseTicket: SaveTicket(user,message); break;
+               case Step.ChooseTicket: SaveTicket(user,message,messageId); break;
                case Step.YesOrNo: break;
             }
         }
@@ -147,7 +149,7 @@ class Program
 
                 for (int i = 1; i < 36; i++)
                 {
-                    var row = InlineKeyboardButton.WithCallbackData($"{i}",callbackData:$"{i}");
+                    var row = InlineKeyboardButton.WithCallbackData($"{i}");
                     
                      rows.Add(row);
                     if (i % 7 == 0)
@@ -165,8 +167,10 @@ class Program
                 bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",replyMarkup: keybord);
             }
 
-            void SaveTicket(User user, string message)
+            void SaveTicket(User user, string message, int messageId)
             {
+                bot.DeleteMessageAsync(user.ChatId, messageId);
+                
                 var check = StaticService.CheckNumber(message);
                 if (check) 
                     TellAboutError(user);
@@ -183,15 +187,21 @@ class Program
                 if (ticket.Result is not null)
                     TellAboutResult(user,ticket.Result);
 
-                for (int i = 20*(tickedId -1) + 1 ; i <= tickedId*20; i++)
+                user.TicketInfo = new()
                 {
-                    SendTest(user:user,testId:i);
-                }
+                    NextTestId = 20 * (tickedId - 1) + 1,
+                    EndTo = tickedId * 20
+                };
+                SendTest(user);
             }
 
-            void SendTest(User user, int testId)
+            void SendTest(User user)
             {
-                var test = testService.Tests.Find(x => x.Id == testId);
+                if (user.TicketInfo is  null)
+                return;
+                
+                var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
+                var question = $"{test.Id}. {test.Question}";
 
                 List<string> options = new();
 
@@ -207,7 +217,10 @@ class Program
                     }
                 }
 
-                bot.SendPollAsync(user.ChatId, test!.Question,
+                user.TicketInfo.NextTestId += 1;
+
+                bot.SendPollAsync(user.ChatId,
+                    question:question,
                     options: options, 
                     correctOptionId: correctId,
                     isAnonymous: false,

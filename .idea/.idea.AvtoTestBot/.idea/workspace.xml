@@ -7,11 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="Add SendTest">
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="Add Static Service">
+      <change afterPath="$PROJECT_DIR$/TestBot/Entities/TicketInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Entities/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
@@ -48,6 +49,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -116,7 +118,7 @@
       <workItem from="1720769715197" duration="11926000" />
       <workItem from="1720854769194" duration="8000" />
       <workItem from="1720885913963" duration="146000" />
-      <workItem from="1720956512434" duration="32727000" />
+      <workItem from="1720956512434" duration="38921000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -158,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721056689073</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add Static Service">
+      <option name="closed" value="true" />
+      <created>1721109389713</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721109389713</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,7 @@
     <MESSAGE value="With Add Contect" />
     <MESSAGE value="Create Ticket" />
     <MESSAGE value="Add SendTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SendTest" />
+    <MESSAGE value="Add Static Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Static Service" />
   </component>
 </project>

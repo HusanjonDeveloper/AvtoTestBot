@@ -12,11 +12,12 @@ public static class StaticService
     public const string MessageToAdminText = "Send message to admin 👨🏻‍💻";
     public const string AboutText = "About me ℹ️";
     public const string MenuText = "Menu 📖 : ";
-    public static Tuple<long, string?, string, bool> GetData(Update update)
+    public static Tuple<long, string?, string, int, bool> GetData(Update update)
     {
         long chatId;
         string? username;
         string message;
+        int messageId;
         bool chesk;
 
         if (update.Type == UpdateType.Message)
@@ -24,13 +25,15 @@ public static class StaticService
             chatId = update.Message.From.Id;
             username = update.Message.From.Username;
             message = update.Message.Text;
+            messageId = update.Message.MessageId;
             chesk = false;
         }
         else if (update.Type == UpdateType.CallbackQuery)
         {
-            chatId = update.CallbackQuery.Message.From.Id;
-            username = update.CallbackQuery.Message.From.Username;
+            chatId = update.CallbackQuery!.From.Id;
+            username = update.CallbackQuery.From.Username;
             message = update.CallbackQuery.Data!;
+            messageId = update.CallbackQuery.Message.MessageId;
             chesk = false;
         }
         else
@@ -39,9 +42,10 @@ public static class StaticService
             username = default;
             message = default;
             chesk = true;
+            messageId = 0;
         }
 
-        return new(chatId, username, message, chesk);
+        return new(chatId, username, message, messageId,chesk);
     }
   public  static bool CheckNumber(string text)
     {
