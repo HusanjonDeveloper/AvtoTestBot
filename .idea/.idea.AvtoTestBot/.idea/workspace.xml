@@ -7,21 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="Add Static Service">
-      <change afterPath="$PROJECT_DIR$/TestBot/Entities/TicketInfo.cs" afterDir="false" />
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +38,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -118,7 +108,8 @@
       <workItem from="1720769715197" duration="11926000" />
       <workItem from="1720854769194" duration="8000" />
       <workItem from="1720885913963" duration="146000" />
-      <workItem from="1720956512434" duration="38921000" />
+      <workItem from="1720956512434" duration="39610000" />
+      <workItem from="1721143889114" duration="2538000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -168,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721109389713</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Code Rub">
+      <option name="closed" value="true" />
+      <created>1721131720187</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721131720187</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +183,7 @@
     <MESSAGE value="Create Ticket" />
     <MESSAGE value="Add SendTest" />
     <MESSAGE value="Add Static Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Static Service" />
+    <MESSAGE value="Code Rub" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code Rub" />
   </component>
 </project>
