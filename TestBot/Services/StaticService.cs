@@ -12,13 +12,14 @@ public static class StaticService
     public const string MessageToAdminText = "Send message to admin 👨🏻‍💻";
     public const string AboutText = "About me ℹ️";
     public const string MenuText = "Menu 📖 : ";
-    public static Tuple<long, string?, string, int, bool> GetData(Update update)
+    public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
     {
         long chatId;
         string? username;
         string message;
-        int messageId;
+        bool isPollAnswer;
         bool chesk;
+        int messageId;
 
         if (update.Type == UpdateType.Message)
         {
@@ -27,6 +28,7 @@ public static class StaticService
             message = update.Message.Text;
             messageId = update.Message.MessageId;
             chesk = false;
+            isPollAnswer = false;
         }
         else if (update.Type == UpdateType.CallbackQuery)
         {
@@ -35,6 +37,18 @@ public static class StaticService
             message = update.CallbackQuery.Data!;
             messageId = update.CallbackQuery.Message.MessageId;
             chesk = false;
+            isPollAnswer = false;
+        }
+        else if (update.Type == UpdateType.PollAnswer)
+        {
+            var answer = update.PollAnswer;
+            chatId = answer.User.Id;
+            username = answer.User.Username;
+            var selectedId = answer.OptionIds[0];
+            message = selectedId.ToString();
+            messageId = 0;
+            isPollAnswer = true;
+            chesk = false; 
         }
         else
         {
@@ -42,10 +56,11 @@ public static class StaticService
             username = default;
             message = default;
             chesk = true;
+            isPollAnswer = false;
             messageId = 0;
         }
 
-        return new(chatId, username, message, messageId,chesk);
+        return new(chatId, username, message, messageId,isPollAnswer,chesk);
     }
   public  static bool CheckNumber(string text)
     {

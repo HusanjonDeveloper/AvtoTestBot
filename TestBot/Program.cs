@@ -30,13 +30,19 @@ class Program
 
         void BotFunction(Update update)
         {
-            var (chatId, username, message, messageId,chesk) = StaticService.GetData(update: update);
+            var (chatId, username, message, messageId,isPollAnswer,chesk) = StaticService.GetData(update: update);
 
             if (chesk)
                 return;
-
+          
             var user = userService.AddUser(chatId, username);
-            
+              
+            if (isPollAnswer)
+            {
+                int selectedId = int.Parse(message);
+                Sending(user,selectedId);
+            }
+
             Console.WriteLine(message);
 
             switch (user.UserStep)
@@ -190,43 +196,88 @@ class Program
                 user.TicketInfo = new()
                 {
                     NextTestId = 20 * (tickedId - 1) + 1,
-                    EndTo = tickedId * 20
+                    EndTo = tickedId * 20,
+                    TicketId = tickedId
                 };
                 SendTest(user);
+            }
+
+            void Sending(User user, int selectedId)
+            {
+                if(user.TicketInfo is null)
+                    return;
+
+                var ticket = ticketService.AddOrUpdate(user.ChatId, user.TicketInfo.TicketId);
+                var test = testService.Tests.Find(t => t.Id == user.TicketInfo.NextTestId - 1);
+              
+                ticket.Result ??= new(){CorrecAnswerCount = 0};
+
+                if (test.Choices[selectedId].Answer)
+                {
+                    ticket.Result.CorrecAnswerCount += 1;
+                }
+                
+                ticketService.UpdateTicket();
+                SendTest(user);
+
             }
 
             void SendTest(User user)
             {
                 if (user.TicketInfo is  null)
                 return;
-                
-                var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
-                var question = $"{test.Id}. {test.Question}";
 
-                List<string> options = new();
-
-                int correctId = 0;
+                var ticket = ticketService.AddOrUpdate(user.ChatId, user.TicketInfo.TicketId);
                 
-                for(int i = 0; i < test?.Choices.Count; i++)
+                if (user.TicketInfo.IsCompleted)
                 {
-                    options.Add(test.Choices[i].Text);
-                    
-                    if (test.Choices[i].Answer)
-                    {
-                        correctId = i ;
-                    }
+                    ShowResult(user,ticket.Result!);
+                    user.TicketInfo = null;
+                    userService.UpdateUsser();
+                    ShowMenu(user);
+                    ShowMenu(user);
                 }
+                else
+                {
+                    var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
+                    var question = $"{test.Id}. {test.Question}";
 
-                user.TicketInfo.NextTestId += 1;
+                    List<string> options = new();
 
-                bot.SendPollAsync(user.ChatId,
-                    question:question,
-                    options: options, 
-                    correctOptionId: correctId,
-                    isAnonymous: false,
-                    type:PollType.Quiz,
-                    closeDate:DateTime.Now.AddMinutes(1));
-            } 
+                    int correctId = 0;
+                
+                    for(int i = 0; i < test?.Choices.Count; i++)
+                    {
+                        options.Add(test.Choices[i].Text);
+                    
+                        if (test.Choices[i].Answer)
+                        {
+                            correctId = i ;
+                        }
+                    }
+
+                    user.TicketInfo.NextTestId += 1;
+                    userService.UpdateUsser();
+
+                    bot.SendPollAsync(user.ChatId,
+                        question:question,
+                        options: options, 
+                        correctOptionId: correctId,
+                        isAnonymous: false,
+                        type:PollType.Quiz,
+                        closeDate:DateTime.Now.AddMinutes(1));
+                }
+            }
+
+            void ShowResult(User user, Result result)
+            {
+                var text = $"Total Question count is {result.TotalAnswerCount}\n" +
+                           $"Your Correct answers count is {result.CorrecAnswerCount}\n" +
+                           $"Your InCorrect answers count is {result.InCorrectAnswerCount}";
+                
+                bot.SendTextMessageAsync(user.ChatId, text);
+
+            }
             void TellAboutResult(User user, Result result)
             {
                 var text = "You took this ticket before. \n" +
@@ -251,7 +302,6 @@ class Program
                 bot.SendTextMessageAsync(user.ChatId, text, replyMarkup: keybord); 
 
             }
-
             void TellAboutError(User user)
             {
                 var text = "u send wrong info, if u wanna take a test , please choose ticket with these buttons. " +
