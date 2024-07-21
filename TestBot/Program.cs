@@ -1,10 +1,14 @@
-﻿using JFA.Telegram.Console;
+﻿using System.Net;
+using JFA.Telegram.Console;
 using Telegram.Bot;
+using Telegram.Bot.Requests;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 using TestBot.Entities;
 using TestBot.Services;
+using File = Telegram.Bot.Types.File;
 using User = TestBot.Entities.User;
 
 namespace TestBot;
@@ -42,17 +46,19 @@ class Program
                 int selectedId = int.Parse(message);
                 Sending(user,selectedId);
             }
-
-            Console.WriteLine(message);
-
-            switch (user.UserStep)
+            else
             {
-                case Step.AskName: AskName(user); break;
-                case Step.SaveName: SaveName(user,message);break;
-               case Step.SavePhoneNumber: SavePhoneNumber(user, update); break;
-               case Step.ChooseMenu: ChooseMenu(user, message);break;
-               case Step.ChooseTicket: SaveTicket(user,message,messageId); break;
-               case Step.YesOrNo: break;
+                Console.WriteLine(message);
+
+                switch (user.UserStep)
+                {
+                    case Step.AskName: AskName(user); break;
+                    case Step.SaveName: SaveName(user,message);break;
+                    case Step.SavePhoneNumber: SavePhoneNumber(user, update); break;
+                    case Step.ChooseMenu: ChooseMenu(user, message);break;
+                    case Step.ChooseTicket: SaveTicket(user,message,messageId); break;
+                    case Step.YesOrNo: break;
+                }
             }
         }
             void AskName(User user)
@@ -138,13 +144,20 @@ class Program
 
             void ChooseMenu(User user, string message)
             {
-                switch (message)
+                try
                 {
-                    case StaticService.TakeTestText : ShowTicket(user); break;
-                    case StaticService.ShowResultText: break;
-                    case StaticService.MessageToAdminText: break;
-                    case StaticService.AboutText: break;
-                    default: ShowMenu(user); break;
+                    switch (message)
+                    {
+                        case StaticService.TakeTestText : ShowTicket(user); break;
+                        case StaticService.ShowResultText: break;
+                        case StaticService.MessageToAdminText: break;
+                        case StaticService.AboutText: break;
+                        default: ShowMenu(user); break;
+                    }
+                }
+                catch (Exception e)
+                {
+                   ShowMenu(user);
                 }
             }
 
@@ -199,6 +212,7 @@ class Program
                     EndTo = tickedId * 20,
                     TicketId = tickedId
                 };
+                userService.UpdateUsser();
                 SendTest(user);
             }
 
@@ -218,55 +232,71 @@ class Program
                 }
                 
                 ticketService.UpdateTicket();
-                SendTest(user);
-
-            }
-
-            void SendTest(User user)
-            {
-                if (user.TicketInfo is  null)
-                return;
-
-                var ticket = ticketService.AddOrUpdate(user.ChatId, user.TicketInfo.TicketId);
-                
                 if (user.TicketInfo.IsCompleted)
                 {
                     ShowResult(user,ticket.Result!);
                     user.TicketInfo = null;
                     userService.UpdateUsser();
                     ShowMenu(user);
-                    ShowMenu(user);
                 }
                 else
                 {
-                    var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
+                    SendTest(user);
+                }
+            }
+
+            void SendTest(User user)
+            {
+                if (user.TicketInfo is  null)
+                return;
+                
+                var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
                     var question = $"{test.Id}. {test.Question}";
 
+                    int characterNumber = 65;
                     List<string> options = new();
 
                     int correctId = 0;
                 
                     for(int i = 0; i < test?.Choices.Count; i++)
                     {
-                        options.Add(test.Choices[i].Text);
+                        var letter = Convert.ToChar(characterNumber);
+                        question += $"\n {letter} ) {test.Choices[i].Text}";
+                        options.Add($"{letter}");
                     
                         if (test.Choices[i].Answer)
                         {
                             correctId = i ;
                         }
+
+                        characterNumber++;
                     }
 
                     user.TicketInfo.NextTestId += 1;
                     userService.UpdateUsser();
 
-                    bot.SendPollAsync(user.ChatId,
-                        question:question,
+                    if (test.Media.Exist)
+                    {
+                        var path = $"Avtotest/ {test.Media.Name}.png";
+                        var data = await File.ReadAllBytesAsync(path);
+                        var ms = new MemoryStream(data);
+                        var photo = new InputOnlineFile(ms);
+
+                        await bot.SendTextMessageAsync(user.ChatId, caption: question, photo: photo);
+                    }
+                    else
+                    {
+                        await bot.SendTextMessageAsync(user.ChatId, text:question);
+                    }
+
+                        await  bot.SendPollAsync(user.ChatId,
+                        question:"question",
                         options: options, 
                         correctOptionId: correctId,
                         isAnonymous: false,
                         type:PollType.Quiz,
                         closeDate:DateTime.Now.AddMinutes(1));
-                }
+                
             }
 
             void ShowResult(User user, Result result)
