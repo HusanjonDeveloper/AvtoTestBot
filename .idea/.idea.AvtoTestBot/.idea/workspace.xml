@@ -40,7 +40,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -112,6 +111,15 @@
       <workItem from="1721397475044" duration="638000" />
       <workItem from="1721499843871" duration="4757000" />
       <workItem from="1721546464711" duration="3969000" />
+      <workItem from="1721562939645" duration="980000" />
+      <workItem from="1721641906170" duration="9000" />
+      <workItem from="1721657176595" duration="1138000" />
+      <workItem from="1722049800343" duration="1371000" />
+      <workItem from="1722071722442" duration="3622000" />
+      <workItem from="1722090109788" duration="1882000" />
+      <workItem from="1722167331996" duration="2420000" />
+      <workItem from="1722260517975" duration="2698000" />
+      <workItem from="1722279253849" duration="720000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -193,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721504857257</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="code rub SendTest">
+      <option name="closed" value="true" />
+      <created>1721585594621</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721585594621</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +229,7 @@
     <MESSAGE value="Add Ticker" />
     <MESSAGE value="code rub" />
     <MESSAGE value="Add isPollAnswer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add isPollAnswer" />
+    <MESSAGE value="code rub SendTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="code rub SendTest" />
   </component>
 </project>

@@ -148,20 +148,24 @@ class Program
                 {
                     switch (message)
                     {
-                        case StaticService.TakeTestText : ShowTicket(user); break;
+                        case StaticService.TakeTestText:
+                            ShowTicket(user);
+                            break;
                         case StaticService.ShowResultText: break;
                         case StaticService.MessageToAdminText: break;
                         case StaticService.AboutText: break;
-                        default: ShowMenu(user); break;
+                        default:
+                            ShowMenu(user);
+                            break;
                     }
                 }
                 catch (Exception e)
                 {
-                   ShowMenu(user);
+                    ShowMenu(user);
                 }
             }
-
-            void ShowTicket(User user)
+            
+            async void ShowTicket(User user)
             {
                 var buttoms = new List<List<InlineKeyboardButton>>();
                 var rows = new List<InlineKeyboardButton>();
@@ -186,7 +190,7 @@ class Program
                 bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",replyMarkup: keybord);
             }
 
-            void SaveTicket(User user, string message, int messageId)
+           void SaveTicket(User user, string message, int messageId)
             {
                 bot.DeleteMessageAsync(user.ChatId, messageId);
                 
@@ -245,7 +249,7 @@ class Program
                 }
             }
 
-            void SendTest(User user)
+           async void SendTest(User user)
             {
                 if (user.TicketInfo is  null)
                 return;
@@ -260,7 +264,7 @@ class Program
                 
                     for(int i = 0; i < test?.Choices.Count; i++)
                     {
-                        var letter = Convert.ToChar(characterNumber);
+                        var letter = Convert.ToChar(characterNumber); // A/ B/ C in ASCII table
                         question += $"\n {letter} ) {test.Choices[i].Text}";
                         options.Add($"{letter}");
                     
@@ -278,7 +282,7 @@ class Program
                     if (test.Media.Exist)
                     {
                         var path = $"Avtotest/ {test.Media.Name}.png";
-                        var data = await File.ReadAllBytesAsync(path);
+                        var data = await File.ReadAllBytestAsync(path);
                         var ms = new MemoryStream(data);
                         var photo = new InputOnlineFile(ms);
 
