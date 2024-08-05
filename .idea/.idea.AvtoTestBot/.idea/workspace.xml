@@ -8,10 +8,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TestBot/Entities/Info.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/UserPrefs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/project-cache/TestBot-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/project-cache/TestBot-Debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Entities/Step.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Entities/Step.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/JFA.Telegram.Console.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Newtonsoft.Json.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Telegram.Bot.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.runtimeconfig.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.Up2Date" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +151,12 @@
       <workItem from="1722167331996" duration="2420000" />
       <workItem from="1722260517975" duration="2698000" />
       <workItem from="1722279253849" duration="720000" />
+      <workItem from="1722286961465" duration="12634000" />
+      <workItem from="1722421000402" duration="2180000" />
+      <workItem from="1722698288260" duration="1757000" />
+      <workItem from="1722847808299" duration="623000" />
+      <workItem from="1722856377918" duration="141000" />
+      <workItem from="1722860523060" duration="5465000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />

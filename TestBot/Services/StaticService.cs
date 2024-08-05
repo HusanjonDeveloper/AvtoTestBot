@@ -1,5 +1,6 @@
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TestBot.Services;
 
@@ -64,14 +65,34 @@ public static class StaticService
     }
   public  static bool CheckNumber(string text)
     {
-        for (int i = 0; i < text.Length; i++)
+        foreach (char  c  in  text)
         {
-            if (char.IsLetterOrDigit(text[i]))
+            if (!char.IsDigit(c))
             {
                 return true;
             }
         }
-
         return false;
+    }
+  
+   public static InlineKeyboardMarkup GetTickets()
+    {
+        var buttoms = new List<List<InlineKeyboardButton>>();
+        var rows = new List<InlineKeyboardButton>();
+
+        for (int i = 1; i < 36; i++)
+        {
+            var row = InlineKeyboardButton.WithCallbackData($"{i}");
+
+            rows.Add(row);
+            if (i % 7 == 0)
+            {
+                buttoms.Add(rows);
+                rows = new();
+            }
+        }
+        
+        var keybord = new InlineKeyboardMarkup(buttoms);
+        return keybord;
     }
 }

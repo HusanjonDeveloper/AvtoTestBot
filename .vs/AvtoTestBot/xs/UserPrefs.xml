@@ -1,4 +1,14 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{45AE2F3B-6AD9-4B98-95BA-C7DBEB78293A}|Default">
+﻿<Properties StartupConfiguration="{45AE2F3B-6AD9-4B98-95BA-C7DBEB78293A}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.TestBot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestBot/Program.cs">
+    <Files>
+      <File FileName="TestBot/Program.cs" Line="328" Column="55" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
