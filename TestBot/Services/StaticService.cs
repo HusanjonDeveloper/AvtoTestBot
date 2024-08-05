@@ -95,4 +95,19 @@ public static class StaticService
         var keybord = new InlineKeyboardMarkup(buttoms);
         return keybord;
     }
+
+    public static InlineKeyboardMarkup GetYerOrNo()
+    {
+        var buttons = new List<List<InlineKeyboardButton>>();
+
+        var rows = new List<InlineKeyboardButton>()
+        {
+            InlineKeyboardButton.WithCallbackData("Yes"),
+            InlineKeyboardButton.WithCallbackData("No")
+        };
+        buttons.Add(rows);
+
+        var keybord = new InlineKeyboardMarkup(buttons);
+        return keybord;
+    }
 }

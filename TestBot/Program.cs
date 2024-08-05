@@ -1,5 +1,4 @@
-﻿
-using JFA.Telegram.Console;
+﻿using JFA.Telegram.Console;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -7,11 +6,9 @@ using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 using TestBot.Entities;
 using TestBot.Services;
-using File = Telegram.Bot.Types.File;
 using User = TestBot.Entities.User;
 
 namespace TestBot;
-
 class Program
 {
     public static void Main(string[] args)
@@ -24,7 +21,7 @@ class Program
 
         var botManager = new TelegramBotManager();
 
-        var bot = botManager.Create("7237808186:AAGnu416wExiX-yZw6XgZct4Dxj8B_mx67M");
+        var bot = botManager.Create("7407824827:AAGi6MoDU7BtuanV8-t6N88HNLNLzxGa8-Q");
 
         botManager.Start(BotFunction);
         return;
@@ -48,16 +45,24 @@ class Program
             {
                 Console.WriteLine(message);
 
-                switch (user.UserStep)
+                try
                 {
-                    case Step.AskName: AskName(user); break;
-                    case Step.SaveName: SaveName(user, message); break;
-                    case Step.SavePhoneNumber: SavePhoneNumber(user, update); break;
-                    case Step.ChooseMenu: ChooseMenu(user, message); break;
-                    case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
-                    case Step.ChooseTicketForResult : break;
-                    case Step.YesOrNo: break;
-                    default: ShowMenu(user); break;
+                    switch (user.UserStep)
+                    {
+                        case Step.AskName: AskName(user); break;
+                        case Step.SaveName: SaveName(user, message); break;
+                        case Step.SavePhoneNumber: SavePhoneNumber(user, update); break;
+                        case Step.ChooseMenu: ChooseMenu(user, message); break;
+                        case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
+                        case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
+                        case Step.YesOrNo: break;
+                        default: ShowMenu(user); break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    bot.DeleteMessageAsync(user.ChatId, messageId);
+                    ShowMenu(user);
                 }
             }
         }
@@ -163,8 +168,8 @@ class Program
                 ShowMenu(user);
             }
         }
-
-        async void ShowTicket(User user)
+        
+        void ShowTicket(User user)
         {
             var keybord = StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForTest;
@@ -233,7 +238,7 @@ class Program
                 return;
 
             var test = testService.Tests.Find(x => x.Id == user.TicketInfo.NextTestId);
-            var question = $"{test.Id}. {test.Question}";
+            var question = $"{test!.Id}. {test.Question}";
 
             int characterNumber = 65;
             List<string> options = new();
@@ -257,11 +262,11 @@ class Program
             user.TicketInfo.NextTestId += 1;
             userService.UpdateUsser();
 
-            if (test.Media.Exist)
+            if (test!.Media.Exist)
             {
                 
                 var path = $"Autotest/{test.Media.Name}.png";
-                var data = await File.ReadAllBytesAsync(path);
+                var data = await System.IO.File.ReadAllBytesAsync(path);
                 var ms = new MemoryStream(data);
                 var photo = new InputOnlineFile(ms);
 
@@ -300,46 +305,44 @@ class Program
             ShowMenu(user);
         }
         
-        void ShowResult(User user, Ticket ticket)
+        void ShowResult(User user, Ticket? ticket)
         {
-            var quality = (ticket.Result!.CorrecAnswerCount * 1.0 / ticket.Result.TotalAnswerCount) * 100;
-            var message =
-                "🖕🏾 Natijangiz: \r\n + " +
-                $"👨🏾‍🦱 Foydalanuvchi : {user.FirstName} \r\n" +
-                $"🖥 Ticket Raqam :{ticket.Id} \r\n" +
-                $"👍🏼 Togri Javoblar : {ticket.Result.CorrecAnswerCount} ta\r\n" +
-                $"👎🏼 Notog'ri Javoblar : {ticket.Result.InCorrectAnswerCount} ta\r\n" +
-                $"📊 Sifat : {quality}%\r\n" +
-                $"📆 {ticket.TookAt:d} ⌚️ {ticket.TookAt:t}\r\n" +
-                "\r\n------------------------\r\n";
+            if (ticket is null)
+            {
+                NotFoundTicket(user);
+            }
+            else
+            {
+                var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;
+           
+                var message =
+                    "📝 Natijangiz: \r\n + " +
+                    $"👨🏻‍💼 Foydalanuvchi : {user.FirstName} \r\n" +
+                    $"🔢 Ticket Raqam :{ticket?.Id} \r\n" +
+                    $"✅ Togri Javoblar : {ticket?.Result?.CorrecAnswerCount} ta\r\n" +
+                    $"❌ Notog'ri Javoblar : {ticket?.Result?.InCorrectAnswerCount} ta\r\n" +
+                    $"📊 Sifat : {quality}%\r\n" +
+                    $"📆 {ticket?.TookAt:d} ⌚️ {ticket?.TookAt:t}\r\n" +
+                    "\r\n------------------------\r\n";
 
-            bot.SendTextMessageAsync(user.ChatId, message);
+                bot.SendTextMessageAsync(user.ChatId, message);   
+            }
         }
 
         void TellAboutResult(User user, Ticket ticket)
         {
             var quality = (ticket.Result!.CorrecAnswerCount * 1.0 / ticket.Result.TotalAnswerCount) * 100;
             var message =
-                "🖕🏾 Natijangiz: \r\n + " +
-                $"👨🏾‍🦱 Foydalanuvchi : {user.FirstName} \r\n" +
-                $"🖥 Ticket Raqam :{ticket.Id} \r\n" +
-                $"👍🏼 Togri Javoblar : {ticket.Result.CorrecAnswerCount} ta\r\n" +
-                $"👎🏼 Notog'ri Javoblar : {ticket.Result.InCorrectAnswerCount} ta\r\n" +
+                "📝 Natijangiz: \r\n + " +
+                $"👨🏻‍💼 Foydalanuvchi : {user.FirstName} \r\n" +
+                $"🔢 Ticket Raqam :{ticket.Id} \r\n" +
+                $"✅ Togri Javoblar : {ticket.Result.CorrecAnswerCount} ta\r\n" +
+                $"❌ Notog'ri Javoblar : {ticket.Result.InCorrectAnswerCount} ta\r\n" +
                 $"📊 Sifat : {quality}%\r\n" +
                 $"📆 {ticket.TookAt:d} ⌚️ {ticket.TookAt:t}\r\n" +
                 "\r\n------------------------\r\n";
 
-            var buttons = new List<List<InlineKeyboardButton>>();
-
-            var rows = new List<InlineKeyboardButton>()
-            {
-                InlineKeyboardButton.WithCallbackData("Yes"),
-                InlineKeyboardButton.WithCallbackData("No")
-            };
-            buttons.Add(rows);
-
-            var keybord = new InlineKeyboardMarkup(buttons);
-
+            var keybord = StaticService.GetYerOrNo();
             user.UserStep = Step.YesOrNo;
             userService.UpdateUsser();
 
@@ -353,6 +356,15 @@ class Program
 
             bot.SendTextMessageAsync(user.ChatId, text);
             ShowTicket(user);
+        }
+
+        void NotFoundTicket(User user)
+        {
+            var message = "You did't take this ticket before";
+            
+            var keybord = StaticService.GetYerOrNo();
+
+            bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
 
         Tuple<Ticket,byte> GetTicket(User user,string message)
@@ -371,5 +383,10 @@ class Program
             var ticket = ticketService.AddOrUpdate(user.ChatId, tickedId);
             return new(ticket, tickedId);
         }
+        
+        
+        
+        
+        
     }
 }
