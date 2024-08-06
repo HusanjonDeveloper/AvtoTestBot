@@ -7,43 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TestBot/Entities/Info.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/v17/DocumentLayout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/UserPrefs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/project-cache/TestBot-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AvtoTestBot/xs/project-cache/TestBot-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Entities/Step.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Entities/Step.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/JFA.Telegram.Console.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/Telegram.Bot.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.csproj.Up2Date" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/TestBot.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,6 +121,7 @@
       <workItem from="1722847808299" duration="623000" />
       <workItem from="1722856377918" duration="141000" />
       <workItem from="1722860523060" duration="5465000" />
+      <workItem from="1722872459142" duration="7005000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -246,7 +211,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721585594621</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add GetTicket and ShowResults , ShowResultById">
+      <option name="closed" value="true" />
+      <created>1722873282766</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722873282766</updated>
+    </task>
+    <task id="LOCAL-00013" summary="dey 09 bot">
+      <option name="closed" value="true" />
+      <created>1722892778476</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722892778476</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +248,8 @@
     <MESSAGE value="code rub" />
     <MESSAGE value="Add isPollAnswer" />
     <MESSAGE value="code rub SendTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="code rub SendTest" />
+    <MESSAGE value="Add GetTicket and ShowResults , ShowResultById" />
+    <MESSAGE value="dey 09 bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="dey 09 bot" />
   </component>
 </project>
