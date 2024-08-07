@@ -7,7 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="" />
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="AssemblyCompanyAttribute">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,9 +46,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -122,6 +138,7 @@
       <workItem from="1722856377918" duration="141000" />
       <workItem from="1722860523060" duration="5465000" />
       <workItem from="1722872459142" duration="7005000" />
+      <workItem from="1722951498767" duration="9930000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -227,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722892778476</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="AssemblyCompanyAttribute">
+      <option name="closed" value="true" />
+      <created>1722951528789</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722951528789</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +275,7 @@
     <MESSAGE value="code rub SendTest" />
     <MESSAGE value="Add GetTicket and ShowResults , ShowResultById" />
     <MESSAGE value="dey 09 bot" />
-    <option name="LAST_COMMIT_MESSAGE" value="dey 09 bot" />
+    <MESSAGE value="AssemblyCompanyAttribute" />
+    <option name="LAST_COMMIT_MESSAGE" value="AssemblyCompanyAttribute" />
   </component>
 </project>

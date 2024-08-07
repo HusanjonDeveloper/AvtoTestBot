@@ -21,7 +21,7 @@ class Program
 
         var botManager = new TelegramBotManager();
 
-        var bot = botManager.Create("7407824827:AAGi6MoDU7BtuanV8-t6N88HNLNLzxGa8-Q");
+        var bot = botManager.Create("7121515784:AAHPWbbGkY9ERJ2j_N17mDMxJiPBFA8dH68");
 
         botManager.Start(BotFunction);
         return;
