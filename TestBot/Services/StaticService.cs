@@ -14,6 +14,7 @@ public static class StaticService
     public const string MessageToAdminText = "Send message to admin 👨🏻‍💻";
     public const string AboutText = "About me ℹ️";
     public const string MenuText = "Menu 📖 : ";
+    public const string BackText = "Back 🔙";
     public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
     {
         long chatId;
@@ -111,7 +112,20 @@ public static class StaticService
         var keybord = new InlineKeyboardMarkup(buttons);
         return keybord;
     }
-    
+
+    public static ReplyKeyboardMarkup Back()
+    {
+        var buttoms = new List<List<KeyboardButton>>();
+
+        var rows = new List<KeyboardButton>()
+        {
+            new KeyboardButton(BackText)
+        };
+        
+        buttoms.Add(rows);
+
+        return new ReplyKeyboardMarkup(buttoms) { ResizeKeyboard = true };
+    }
   public static string ResultMessage(string firstname, Ticket ticket)
     {
         var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;

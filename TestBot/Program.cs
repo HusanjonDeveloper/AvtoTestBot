@@ -41,6 +41,11 @@ class Program
                 int selectedId = int.Parse(message);
                 Sending(user, selectedId);
             }
+            else if(message == StaticService.BackText)
+            {
+                 ShowMenu(user);
+                 return;
+            }
             else
             {
                 Console.WriteLine(message);
@@ -173,16 +178,18 @@ class Program
             }
         }
         
-        void ShowTicket(User user)
+       async void ShowTicket(User user)
         {
             var keybord = StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForTest;
             userService.UpdateUsser();
 
-            bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
-                replyMarkup: keybord);
+          await  bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
+              replyMarkup: keybord);
+              
+          SendingBack(user);
         }
-
+       
         //async void Info(User user)
         
         void SaveTicket(User user, string message, int messageId)
@@ -298,18 +305,20 @@ class Program
         /*
       async  void IsClosed(User user)
         {
-          await Task.Delay(12000 );
+          await Task.Delay(12000);
             Sending(user,selectedId: -1);
         }*/
 
-        void ShowResults(User user)
+      async  void ShowResults(User user)
         {
             var keybord =  StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForResult;
             userService.UpdateUsser();
 
-            bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
+           await bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
                 replyMarkup: keybord);
+            
+            SendingBack(user);
             
         }
 
@@ -350,13 +359,12 @@ class Program
             bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
         
-
-        void TellAboutError(User user)
+         async void TellAboutError(User user)
         {
             var text = "u send wrong info, if u wanna take a test , please choose ticket with these buttons. " +
                        "\n  Don't send anything else :)";
 
-            bot.SendTextMessageAsync(user.ChatId, text);
+           await bot.SendTextMessageAsync(user.ChatId, text);
             ShowTicket(user);
         }
 
@@ -381,7 +389,10 @@ class Program
             int intNumber = int.Parse(message);
 
             if (!(intNumber is > 0 and < 36))
+            {
                 TellAboutError(user);
+                return new(null, 0, false);
+            }
 
             byte tickedId = Convert.ToByte(intNumber);
 
@@ -389,7 +400,11 @@ class Program
             return new(ticket, tickedId, true);
         }
         
-        
+        async void SendingBack(User user)
+        {
+            var back = StaticService.Back();
+            await bot.SendTextMessageAsync(user.ChatId, "Menu", replyMarkup:back);
+        }
         
         
         
