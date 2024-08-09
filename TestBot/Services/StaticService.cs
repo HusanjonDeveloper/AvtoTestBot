@@ -1,6 +1,7 @@
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using TestBot.Entities;
 
 namespace TestBot.Services;
 
@@ -109,5 +110,19 @@ public static class StaticService
 
         var keybord = new InlineKeyboardMarkup(buttons);
         return keybord;
+    }
+    
+  public static string ResultMessage(string firstname, Ticket ticket)
+    {
+        var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;
+        return
+            "📝 Natijangiz: \r\n " +
+            $"👨🏻‍💼 Foydalanuvchi : {firstname} \r\n" +
+            $"💻 Ticket Raqam :{ticket?.Id} \r\n" +
+            $"✅ Togri Javoblar : {ticket?.Result?.CorrecAnswerCount} ta\r\n" +
+            $"❌ Notog'ri Javoblar : {ticket?.Result?.InCorrectAnswerCount} ta\r\n" +
+            $"📊 Sifat : {quality}%\r\n" +
+            $"📆 {ticket?.TookAt:d} ⏰ {ticket.TookAt:t}\r\n" +
+            "\r\n------------------------\r\n";
     }
 }

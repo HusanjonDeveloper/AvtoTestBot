@@ -21,7 +21,7 @@ class Program
 
         var botManager = new TelegramBotManager();
 
-        var bot = botManager.Create("7121515784:AAHPWbbGkY9ERJ2j_N17mDMxJiPBFA8dH68");
+        var bot = botManager.Create("7407824827:AAGi6MoDU7BtuanV8-t6N88HNLNLzxGa8-Q");
 
         botManager.Start(BotFunction);
         return;
@@ -44,8 +44,13 @@ class Program
             else
             {
                 Console.WriteLine(message);
+                var isProcessing = CheckForProcessing(user);
 
-                try
+                if (isProcessing)
+                {
+                    
+                }
+                else
                 {
                     switch (user.UserStep)
                     {
@@ -56,15 +61,14 @@ class Program
                         case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
                         case Step.YesOrNo: break;
-                        default: ShowMenu(user); break;
-                    }
-                }
-                catch (Exception e)
-                {
-                    bot.DeleteMessageAsync(user.ChatId, messageId);
-                    ShowMenu(user);
+                    }   
                 }
             }
+        }
+
+        bool CheckForProcessing(User user)
+        {
+            return user.TicketInfo is not null;
         }
 
         void AskName(User user)
@@ -313,17 +317,7 @@ class Program
             }
             else
             {
-                var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;
-           
-                var message =
-                    "📝 Natijangiz: \r\n + " +
-                    $"👨🏻‍💼 Foydalanuvchi : {user.FirstName} \r\n" +
-                    $"🔢 Ticket Raqam :{ticket?.Id} \r\n" +
-                    $"✅ Togri Javoblar : {ticket?.Result?.CorrecAnswerCount} ta\r\n" +
-                    $"❌ Notog'ri Javoblar : {ticket?.Result?.InCorrectAnswerCount} ta\r\n" +
-                    $"📊 Sifat : {quality}%\r\n" +
-                    $"📆 {ticket?.TookAt:d} ⌚️ {ticket?.TookAt:t}\r\n" +
-                    "\r\n------------------------\r\n";
+                var message = StaticService.ResultMessage(user.FirstName,ticket);
 
                 bot.SendTextMessageAsync(user.ChatId, message);   
             }
@@ -331,23 +325,15 @@ class Program
 
         void TellAboutResult(User user, Ticket ticket)
         {
-            var quality = (ticket.Result!.CorrecAnswerCount * 1.0 / ticket.Result.TotalAnswerCount) * 100;
-            var message =
-                "📝 Natijangiz: \r\n + " +
-                $"👨🏻‍💼 Foydalanuvchi : {user.FirstName} \r\n" +
-                $"🔢 Ticket Raqam :{ticket.Id} \r\n" +
-                $"✅ Togri Javoblar : {ticket.Result.CorrecAnswerCount} ta\r\n" +
-                $"❌ Notog'ri Javoblar : {ticket.Result.InCorrectAnswerCount} ta\r\n" +
-                $"📊 Sifat : {quality}%\r\n" +
-                $"📆 {ticket.TookAt:d} ⌚️ {ticket.TookAt:t}\r\n" +
-                "\r\n------------------------\r\n";
 
             var keybord = StaticService.GetYerOrNo();
+            var message = StaticService.ResultMessage(user.FirstName,ticket);
             user.UserStep = Step.YesOrNo;
             userService.UpdateUsser();
 
             bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
+        
 
         void TellAboutError(User user)
         {
