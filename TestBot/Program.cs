@@ -188,7 +188,10 @@ class Program
         void SaveTicket(User user, string message, int messageId)
         {
             bot.DeleteMessageAsync(user.ChatId, messageId);
-            var (ticket, tickedId) = GetTicket(user, message);
+            var (ticket, tickedId, check) = GetTicket(user, message);
+           
+            if(!check)
+                return;
             
             if (ticket.Result is not null)
             {
@@ -313,7 +316,11 @@ class Program
         void ShowResultById(User user, string message, int messageId)
         {
             bot.DeleteMessageAsync(user.ChatId, messageId);
-            var (ticket, ticketId) = GetTicket(user, message);
+            var (ticket, ticketId, check) = GetTicket(user, message);
+            
+            if(!check)
+                return;
+            
             ShowResult(user,ticket);
             ShowMenu(user);
         }
@@ -362,11 +369,14 @@ class Program
             bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
 
-        Tuple<Ticket,byte> GetTicket(User user,string message)
+        Tuple<Ticket,byte, bool> GetTicket(User user,string message)
         {
             var check = StaticService.CheckNumber(message);
             if (check)
+            {
                 TellAboutError(user);
+                return new(null, 0, false);
+            }
 
             int intNumber = int.Parse(message);
 
@@ -376,7 +386,7 @@ class Program
             byte tickedId = Convert.ToByte(intNumber);
 
             var ticket = ticketService.AddOrUpdate(user.ChatId, tickedId);
-            return new(ticket, tickedId);
+            return new(ticket, tickedId, true);
         }
         
         
