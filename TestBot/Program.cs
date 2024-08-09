@@ -48,7 +48,7 @@ class Program
 
                 if (isProcessing)
                 {
-                    
+                    bot.SendTextMessageAsync(user.ChatId, "Currently, You're taking test and you have not finished yes it, so go on");
                 }
                 else
                 {
@@ -216,9 +216,12 @@ class Program
 
             ticket.Result ??= new() { CorrecAnswerCount = 0 };
 
-            if (test!.Choices[selectedId].Answer)
+            if (selectedId != -1)
             {
-                ticket.Result.CorrecAnswerCount += 1;
+                if (test!.Choices[selectedId].Answer)
+                {
+                    ticket.Result.CorrecAnswerCount += 1;
+                }   
             }
 
             ticketService.UpdateTicket();
@@ -287,8 +290,17 @@ class Program
                 correctOptionId: correctId,
                 isAnonymous: false,
                 type: PollType.Quiz,
-                closeDate: DateTime.Now.AddMinutes(1));
+                closeDate: DateTime.Now.AddSeconds(10));
+           SendTest(user);
+            //IsClosed(user);
         }
+
+        /*
+      async  void IsClosed(User user)
+        {
+          await Task.Delay(12000 );
+            Sending(user,selectedId: -1);
+        }*/
 
         void ShowResults(User user)
         {

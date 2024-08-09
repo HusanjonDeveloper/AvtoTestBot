@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="Add CheckForProcessing">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
@@ -49,7 +49,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -143,7 +142,7 @@
       <workItem from="1722951498767" duration="10556000" />
       <workItem from="1723041191727" duration="4321000" />
       <workItem from="1723131690059" duration="2765000" />
-      <workItem from="1723187193463" duration="2004000" />
+      <workItem from="1723187193463" duration="4330000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -265,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723023305046</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add CheckForProcessing">
+      <option name="closed" value="true" />
+      <created>1723189445970</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1723189445970</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +297,7 @@
     <MESSAGE value="dey 09 bot" />
     <MESSAGE value="AssemblyCompanyAttribute" />
     <MESSAGE value="Code Rub Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Rub Code" />
+    <MESSAGE value="Add CheckForProcessing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CheckForProcessing" />
   </component>
 </project>
