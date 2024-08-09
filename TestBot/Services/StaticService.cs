@@ -41,15 +41,6 @@ public static class StaticService
             chesk = false;
             isPollAnswer = false;
         }
-        else if(update.Poll.IsClosed)
-        {
-            chatId = update.PollAnswer.User.Id;
-            username = update.PollAnswer.User.Username;
-            message = "1";
-            messageId = 0;
-            isPollAnswer = true;
-            chesk = false;
-        }
         else if (update.Type == UpdateType.PollAnswer)
         {
             var answer = update.PollAnswer;

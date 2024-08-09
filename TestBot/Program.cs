@@ -216,13 +216,10 @@ class Program
 
             ticket.Result ??= new() { CorrecAnswerCount = 0 };
 
-            if (selectedId != -1)
-            {
                 if (test!.Choices[selectedId].Answer)
                 {
                     ticket.Result.CorrecAnswerCount += 1;
                 }   
-            }
 
             ticketService.UpdateTicket();
 
