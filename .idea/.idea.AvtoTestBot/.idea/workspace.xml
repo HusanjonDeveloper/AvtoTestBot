@@ -7,10 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="update code">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/Services/StaticService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +38,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -138,7 +134,7 @@
       <workItem from="1723041191727" duration="4321000" />
       <workItem from="1723131690059" duration="2765000" />
       <workItem from="1723187193463" duration="13502000" />
-      <workItem from="1723226560861" duration="3017000" />
+      <workItem from="1723226560861" duration="11477000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -300,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723213780986</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update code">
+      <option name="closed" value="true" />
+      <created>1723238570879</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1723238570879</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +334,7 @@
     <MESSAGE value="code rub All code" />
     <MESSAGE value="Fixed bug in test shipment" />
     <MESSAGE value="Add Back Buttom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Back Buttom" />
+    <MESSAGE value="update code" />
+    <option name="LAST_COMMIT_MESSAGE" value="update code" />
   </component>
 </project>

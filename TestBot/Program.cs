@@ -334,9 +334,9 @@ class Program
             ShowMenu(user);
         }
         
-        void ShowResult(User user, Ticket? ticket)
+        void ShowResult(User user, Ticket ticket)
         {
-            if (ticket is null)
+            if ( ticket.Result is null)
             {
                 NotFoundTicket(user);
             }
@@ -368,13 +368,13 @@ class Program
             ShowTicket(user);
         }
 
-        void NotFoundTicket(User user)
+       async void NotFoundTicket(User user)
         {
-            var message = "You did't take this ticket before";
+            var message = "You did't take this ticket before \n Do you wanna take this ticket now?";
             
             var keybord = StaticService.GetYerOrNo();
-
-            bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
+           await bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
+            SendingBack(user);
         }
 
         Tuple<Ticket,byte, bool> GetTicket(User user,string message)

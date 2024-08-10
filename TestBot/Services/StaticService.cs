@@ -132,11 +132,11 @@ public static class StaticService
         return
             "📝 Natijangiz: \r\n " +
             $"👨🏻‍💼 Foydalanuvchi : {firstname} \r\n" +
-            $"💻 Ticket Raqam :{ticket?.Id} \r\n" +
-            $"✅ Togri Javoblar : {ticket?.Result?.CorrecAnswerCount} ta\r\n" +
-            $"❌ Notog'ri Javoblar : {ticket?.Result?.InCorrectAnswerCount} ta\r\n" +
+            $"💻 Ticket Raqam :{ticket.Id} \r\n" +
+            $"✅ Togri Javoblar : {ticket.Result.CorrecAnswerCount} ta\r\n" +
+            $"❌ Notog'ri Javoblar : {ticket.Result.InCorrectAnswerCount} ta\r\n" +
             $"📊 Sifat : {quality}%\r\n" +
-            $"📆 {ticket?.TookAt:d} ⏰ {ticket.TookAt:t}\r\n" +
+            $"📆 {ticket.TookAt:d} ⏰ {ticket.TookAt:t}\r\n" +
             "\r\n------------------------\r\n";
     }
 }
