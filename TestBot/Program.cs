@@ -64,7 +64,7 @@ class Program
                         case Step.ChooseMenu: ChooseMenu(user, message); break;
                         case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
-                        case Step.YesOrNo: YesOrNo( user, message);break;
+                        case Step.YesOrNo: YesOrNo( user, message,messageId);break;
                     }   
                 }
             }
@@ -336,7 +336,6 @@ class Program
                 return;
             
             ShowResult(user,ticket);
-            ShowMenu(user);
         }
         
         void ShowResult(User user, Ticket ticket)
@@ -350,6 +349,7 @@ class Program
                 var message = StaticService.ResultMessage(user.FirstName,ticket);
 
                 bot.SendTextMessageAsync(user.ChatId, message);   
+                ShowMenu(user);
             }
         }
 
@@ -386,7 +386,7 @@ class Program
             SendingBack(user);
         }
 
-      async  void YesOrNo(User user, string message)
+      async  void YesOrNo(User user, string message, int messageId)
       {
           var text = "u sent wrong answer for this action !" +
                      "\n please send answer by using this vuttons";
@@ -414,7 +414,9 @@ class Program
             {
                 ShowMenu(user);
             }
-        }
+
+            await bot.DeleteMessageAsync(user.ChatId, messageId);
+      }
 
         Tuple<Ticket,byte, bool> GetTicket(User user,string message)
         {
