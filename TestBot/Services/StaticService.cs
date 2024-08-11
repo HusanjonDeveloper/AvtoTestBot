@@ -98,14 +98,14 @@ public static class StaticService
         return keybord;
     }
 
-    public static InlineKeyboardMarkup GetYerOrNo()
+    public static InlineKeyboardMarkup GetYerOrNo(int ticketId)
     {
         var buttons = new List<List<InlineKeyboardButton>>();
 
         var rows = new List<InlineKeyboardButton>()
         {
-            InlineKeyboardButton.WithCallbackData("Yes"),
-            InlineKeyboardButton.WithCallbackData("No")
+            InlineKeyboardButton.WithCallbackData("Yes", $"yes,{ticketId}"),
+            InlineKeyboardButton.WithCallbackData("No", $"no,{ticketId}")
         };
         buttons.Add(rows);
 

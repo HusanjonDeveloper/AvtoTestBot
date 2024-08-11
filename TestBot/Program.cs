@@ -44,7 +44,6 @@ class Program
             else if(message == StaticService.BackText)
             {
                  ShowMenu(user);
-                 return;
             }
             else
             {
@@ -65,7 +64,7 @@ class Program
                         case Step.ChooseMenu: ChooseMenu(user, message); break;
                         case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
-                        case Step.YesOrNo: break;
+                        case Step.YesOrNo: YesOrNo( user, message);break;
                     }   
                 }
             }
@@ -195,7 +194,7 @@ class Program
         void SaveTicket(User user, string message, int messageId)
         {
             bot.DeleteMessageAsync(user.ChatId, messageId);
-            var (ticket, tickedId, check) = GetTicket(user, message);
+            var (ticket, ticketId, check) = GetTicket(user, message);
            
             if(!check)
                 return;
@@ -206,11 +205,17 @@ class Program
                 return;
             }
 
+            TicketInfoAndTest(user, ticketId);
+        }
+
+        void TicketInfoAndTest(User user, byte ticketId)
+        {
+            
             user.TicketInfo = new()
             {
-                NextTestId = 20 * (tickedId - 1) + 1,
-                EndTo = tickedId * 20,
-                TicketId = tickedId
+                NextTestId = 20 * (ticketId - 1) + 1,
+                EndTo = ticketId * 20,
+                TicketId = ticketId
             };
             userService.UpdateUsser();
             SendTest(user);
@@ -338,7 +343,7 @@ class Program
         {
             if ( ticket.Result is null)
             {
-                NotFoundTicket(user);
+                NotFoundTicket(user,ticket.Id);
             }
             else
             {
@@ -351,7 +356,7 @@ class Program
         void TellAboutResult(User user, Ticket ticket)
         {
 
-            var keybord = StaticService.GetYerOrNo();
+            var keybord = StaticService.GetYerOrNo(ticket.Id);
             var message = StaticService.ResultMessage(user.FirstName,ticket);
             user.UserStep = Step.YesOrNo;
             userService.UpdateUsser();
@@ -368,13 +373,47 @@ class Program
             ShowTicket(user);
         }
 
-       async void NotFoundTicket(User user)
+       async void NotFoundTicket(User user, int ticketId)
         {
-            var message = "You did't take this ticket before \n Do you wanna take this ticket now?";
+            var message = "You did't take this ticket before " +
+                          "\n Do you wanna take this ticket now?";
             
-            var keybord = StaticService.GetYerOrNo();
+            var keybord = StaticService.GetYerOrNo(ticketId);
+            user.UserStep = Step.YesOrNo;
+            userService.UpdateUsser();
+            
            await bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
             SendingBack(user);
+        }
+
+      async  void YesOrNo(User user, string message)
+      {
+          var text = "u sent wrong answer for this action !" +
+                     "\n please send answer by using this vuttons";
+
+          if (!message.Contains(','))
+          {
+              await bot.SendTextMessageAsync(user.ChatId, text);
+              return;
+          }
+              
+          var data = message.Split(',').ToArray();
+          
+            if (!(data[0] == "yes" || data[0] == "no"))
+            {
+                await bot.SendTextMessageAsync(user.ChatId, text);
+                return;
+            }
+            
+            if (data[0] == "yes")
+            {
+                var ticketId = Convert.ToByte(data[1]);
+               TicketInfoAndTest(user,ticketId);
+            }
+            else
+            {
+                ShowMenu(user);
+            }
         }
 
         Tuple<Ticket,byte, bool> GetTicket(User user,string message)
