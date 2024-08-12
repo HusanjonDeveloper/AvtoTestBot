@@ -162,6 +162,7 @@ class Program
             var keybord = StaticService.GetSuperAdminMenu();
 
             bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
+            
         }
         
         void ChooseMenu(User user, string message)

@@ -225,6 +225,7 @@ public static class StaticService
             new(AddChannelLink),
             new(DeleteChenelLink)
         };
+        
         buttons.Add(row1);
         buttons.Add(row2);
         buttons.Add(row3);
