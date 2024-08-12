@@ -128,37 +128,54 @@ class Program
 
         void ShowMenu(User user)
         {
-            var buttons = new List<List<KeyboardButton>>();
-
-            var row1 = new List<KeyboardButton>()
+            switch (user.Role)
             {
-                new KeyboardButton(StaticService.TakeTestText)
-            };
-
-            var row2 = new List<KeyboardButton>()
-            {
-                new KeyboardButton(StaticService.ShowResultText),
-                new KeyboardButton(StaticService.MessageToAdminText)
-            };
-
-            var row3 = new List<KeyboardButton>()
-            {
-                new KeyboardButton(StaticService.AboutText)
-            };
-
-            buttons.Add(row1);
-            buttons.Add(row2);
-            buttons.Add(row3);
-
-            var keybord = new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
-
+                case UserRole.User: ShowUserMenu(user); break;
+                case UserRole.Admin: ShowAdminMenu(user); break;
+                case UserRole.SuperAdmin: ShowSuperAdminMenu(user); break;
+                default: ShowUserMenu(user); break;
+            }
+        }
+        
+        void ShowUserMenu(User user)
+        {
             user.UserStep = Step.ChooseMenu;
             userService.UpdateUsser();
+            var keybord = StaticService.GetUserMenu();
+
+            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
+        }
+        
+        void ShowAdminMenu(User user)
+        {
+            user.UserStep = Step.ChooseMenu;
+            userService.UpdateUsser();
+            var keybord = StaticService.GetAdminMenu();
 
             bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
         }
 
+        void ShowSuperAdminMenu(User user)
+        {
+            user.UserStep = Step.ChooseMenu;
+            userService.UpdateUsser();
+            var keybord = StaticService.GetUserMenu();
+
+            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
+        }
+        
         void ChooseMenu(User user, string message)
+        {
+            switch (user.Role)
+            {
+                case UserRole.User: ChooseUserMenu(user,message); break;
+                case UserRole.Admin: ChooseAdminMenu(user,message); break;
+                case UserRole.SuperAdmin: ChooseSuperAdminMenu(user,message);break;
+                default: ChooseUserMenu(user,message); break;
+            }
+        }
+
+        void ChooseUserMenu(User user, string message)
         {
             try
             {
@@ -173,8 +190,18 @@ class Program
             }
             catch (Exception e)
             {
-                ShowMenu(user);
+               ShowMenu(user);
             }
+        }
+
+        void ChooseAdminMenu(User user, string message)
+        {
+            
+        }
+
+        void ChooseSuperAdminMenu(User user, string message)
+        {
+            
         }
         
        async void ShowTicket(User user)
@@ -408,7 +435,10 @@ class Program
             if (data[0] == "yes")
             {
                 var ticketId = Convert.ToByte(data[1]);
-               TicketInfoAndTest(user,ticketId);
+                var ticket = ticketService.Tickets.Find(x => x.Id == ticketId);
+                ticketService.Tickets.Remove(ticket!);
+                ticketService.UpdateTicket();
+                TicketInfoAndTest(user,ticketId);
             }
             else
             {

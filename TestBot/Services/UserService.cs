@@ -22,8 +22,13 @@ public class UserService
             user = new()
             {
                 ChatId = chatId,
-                UserName = username
+                UserName = username,
+                Role = UserRole.User
             };
+
+            if (user.ChatId == StaticService.SuperAdmin)
+                user.Role = UserRole.SuperAdmin;
+            
             Users.Add(user);
             WriteToFile();
         }
