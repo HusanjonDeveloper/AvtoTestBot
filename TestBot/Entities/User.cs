@@ -7,6 +7,7 @@ public class User
     public  string? UserName { get; set; }
     public Step UserStep { get; set; }
     public  string? PhoneNumber { get; set; }
+    public  UserRole Role { get; set; }
     public TicketInfo? TicketInfo { get; set; }
 
 }
