@@ -1,14 +1,38 @@
 ﻿<Properties StartupConfiguration="{45AE2F3B-6AD9-4B98-95BA-C7DBEB78293A}|Default" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.TestBot PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TestBot/Program.cs">
-    <Files>
-      <File FileName="TestBot/Program.cs" Line="328" Column="55" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TestBot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="TestBot/Program.cs" Line="444" Column="42" />
+      <File FileName="TestBot/Entities/UserRole.cs" Line="7" Column="16" />
+      <File FileName="TestBot/Services/StaticService.cs" Line="32" Column="1" />
+      <File FileName="TestBot/Services/UserService.cs" Line="30" Column="42" />
+      <File FileName="TestBot/obj/TestBot.csproj.nuget.g.props" Line="1" Column="1" />
+      <File FileName="TestBot/obj/TestBot.csproj.nuget.dgspec.json" Line="1" Column="1" />
+      <File FileName="TestBot/obj/rider.project.restore.info" Line="1" Column="1" />
+      <File FileName="TestBot/obj/project.nuget.cache" Line="1" Column="1" />
+      <File FileName="TestBot/obj/project.assets.json" Line="1" Column="1" />
+      <File FileName="TestBot/obj/Debug/net7.0/TestBot.GeneratedMSBuildEditorConfig.editorconfig" Line="1" Column="1" />
+      <File FileName="TestBot/obj/Debug/net7.0/TestBot.assets.cache" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AvtoTestBot">
+            <Node name="TestBot" expanded="True">
+              <Node name="Entities" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="UserService.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
