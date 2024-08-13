@@ -7,18 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/bin/Debug/net7.0/TestBot.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/ref/TestBot.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/refint/TestBot.dll" afterDir="false" />
-    </list>
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
