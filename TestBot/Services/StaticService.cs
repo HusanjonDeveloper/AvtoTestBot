@@ -15,6 +15,8 @@ public static class StaticService
     public const string AboutText = "About me ℹ️";
     public const string MenuText = "Menu 📖 : ";
     public const string BackText = "Back 🔙";
+
+
     public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
     {
         long chatId;
@@ -65,6 +67,7 @@ public static class StaticService
 
         return new(chatId, username, message, messageId,isPollAnswer,chesk);
     }
+
   public  static bool CheckNumber(string text)
     {
         foreach (char  c  in  text)
@@ -126,6 +129,7 @@ public static class StaticService
 
         return new ReplyKeyboardMarkup(buttoms) { ResizeKeyboard = true };
     }
+
   public static string ResultMessage(string firstname, Ticket ticket)
     {
         var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;
