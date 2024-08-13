@@ -1,3 +1,4 @@
+
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -7,14 +8,27 @@ namespace TestBot.Services;
 
 public static class StaticService
 {
-    public const string SendNameText = "Please , send ur name 🧑🏻";
-    public const string  SendContectText = "Sendt ur Contect 📞";
-    public const string TakeTestText = "Take a test \ud83d\udccb";
-    public const string ShowResultText = "Show Result \ud83d\udcca";
-    public const string MessageToAdminText = "Send message to admin 👨🏻‍💻";
-    public const string AboutText = "About me ℹ️";
+    public const string SendNameText = "Iltimos, ismingizni yuboring 🧑🏻";
+    public const string  SendContectText = "Kontaktingizni yuboring  📞";
+    public const string TakeTestText = "Test Ishlash \ud83d\udccb";
+    public const string ShowResultText = "Natijani ko'rsatish \ud83d\udcca";
+    public const string MessageToAdminText = "Adminga xabar yuboring 👨🏻‍💻";
+    public const string GetUsersMessage = "Foydalanuvchilardan xabar oling 📨 ";
+    public const string AboutText = "Men haqimda ℹ️";
+    public const string AnalyzeTicket = "Chipta savollarini tahlil qiling 📑 ";
+    public const string ChangeAboutText = "Ma'lumotni o'zgartirish 👩🏻‍💻";
+    public const string AddTest = "Test qo'shish ✙";
+    public const string DeleteTest = "Testni o'chirish 🗑";
+    public const string AddAdmin = "Add Admin ✙";
+    public const string RemoveAdmin = "Adminni olib tashlang ⛔";
+    public const string SendTextAdd = "Matnli reklamalarni yuborish 📢";
+    public const string SendFullAds = "To'liq e'lonlarni yuboring 📢";
+    public const string GetAllUsers = "Barcha foydalanuvchilarni oling 🙋🏻‍♂️";
+    public const string AddChannelLink = " Kanal havolasini qo'shing 🌐";
+    public const string DeleteChenelLink = "Chenel havolasini o'chirish 🗑";
     public const string MenuText = "Menu 📖 : ";
-    public const string BackText = "Back 🔙";
+    public const string BackText = "Orqaga 🔙";
+    public const long SuperAdmin = 1795525299;
 
 
     public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
