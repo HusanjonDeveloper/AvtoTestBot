@@ -128,42 +128,21 @@ class Program
 
         void ShowMenu(User user)
         {
+            user.UserStep = Step.ChooseMenu;
+            userService.UpdateUsser();
+            ReplyKeyboardMarkup keybord;
+               
             switch (user.Role)
             {
-                case UserRole.User: ShowUserMenu(user); break;
-                case UserRole.Admin: ShowAdminMenu(user); break;
-                case UserRole.SuperAdmin: ShowSuperAdminMenu(user); break;
-                default: ShowUserMenu(user); break;
+                case UserRole.User: keybord = StaticService.GetUserMenu(); break;
+                case UserRole.Admin:keybord = StaticService.GetAdminMenu(); break;
+                case UserRole.SuperAdmin:keybord = StaticService.GetSuperAdminMenu();break;
+                default: keybord = StaticService.GetUserMenu(); break;
             }
+            
+            bot.SendTextMessageAsync(user.ChatId, "Menu", replyMarkup: keybord);
         }
-
-        void ShowUserMenu(User user)
-        {
-            user.UserStep = Step.ChooseMenu;
-            userService.UpdateUsser();
-            var keybord = StaticService.GetUserMenu();
-
-            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
-        }
-
-        void ShowAdminMenu(User user) 
-        {
-            user.UserStep = Step.ChooseMenu;
-            userService.UpdateUsser();
-            var keybord = StaticService.GetAdminMenu();
-
-            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
-        }
-
-        void ShowSuperAdminMenu(User user)
-        {
-            user.UserStep = Step.ChooseMenu;
-            userService.UpdateUsser();
-            var keybord = StaticService.GetSuperAdminMenu();
-
-            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
-        }
-
+        
         void ChooseMenu(User user, string message) 
         {
             switch (user.Role)
