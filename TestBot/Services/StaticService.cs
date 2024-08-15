@@ -21,7 +21,7 @@ public static class StaticService
     public const string DeleteTest = "Testni o'chirish 🗑";
     public const string AddAdmin = "Add Admin ✙";
     public const string RemoveAdmin = "Adminni olib tashlang ⛔";
-    public const string SendTextAdd = "Matnli reklamalarni yuborish 📢";
+    public const string SendTextAds = "Matnli reklamalarni yuborish 📢";
     public const string SendFullAds = "To'liq e'lonlarni yuboring 📢";
     public const string GetAllUsers = "Barcha foydalanuvchilarni oling 🙋🏻‍♂️";
     public const string AddChannelLink = " Kanal havolasini qo'shing 🌐";
@@ -150,7 +150,8 @@ public static class StaticService
 
         var row1 = new List<KeyboardButton>()
         {
-            new (TakeTestText)
+            new (TakeTestText),
+            new(AnalyzeTicket)
         };
 
         var row2 = new List<KeyboardButton>()
@@ -200,6 +201,54 @@ public static class StaticService
         buttons.Add(row2);
         buttons.Add(row3);
         buttons.Add(row4);
+
+        return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
+    }
+    public static ReplyKeyboardMarkup GetSuperAdminMenu()
+    {
+        var buttons = new List<List<KeyboardButton>>();
+
+        var row1 = new List<KeyboardButton>()
+        {
+            new (TakeTestText),
+            new (ShowResultText),
+        };
+
+        var row2 = new List<KeyboardButton>()
+        {
+           
+            new (GetUsersMessage),
+            new (ChangeAboutText)
+        };
+
+        var row3 = new List<KeyboardButton>()
+        {
+            new(AddTest),
+            new(DeleteTest)
+        };
+        var row4 = new List<KeyboardButton>()
+        {
+            new(AddAdmin),
+            new(RemoveAdmin)
+        };
+        var row5 = new List<KeyboardButton>()
+        {
+            new(SendTextAds),
+            new(SendFullAds)
+        };
+        var row6 = new List<KeyboardButton>()
+        {
+            new(GetAllUsers),
+            new(AddChannelLink),
+            new(DeleteChenelLink)
+        };
+
+        buttons.Add(row1);
+        buttons.Add(row2);
+        buttons.Add(row3);
+        buttons.Add(row4);
+        buttons.Add(row5);
+        buttons.Add(row6);
 
         return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
     }
