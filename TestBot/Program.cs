@@ -128,6 +128,17 @@ class Program
 
         void ShowMenu(User user)
         {
+            switch (user.Role)
+            {
+                case UserRole.User: ShowUserMenu(user); break;
+                case UserRole.Admin: ShowAdminMenu(user); break;
+                case UserRole.SuperAdmin: ShowSuperAdminMenu(user); break;
+                default: ShowUserMenu(user); break;
+            }
+        }
+
+        void ShowUserMenu(User user)
+        {
             var buttons = new List<List<KeyboardButton>>();
 
             var row1 = new List<KeyboardButton>()
@@ -156,6 +167,16 @@ class Program
             userService.UpdateUsser();
 
             bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
+        }
+
+        void ShowAdminMenu(User user)
+        {
+            
+        }
+
+        void ShowSuperAdminMenu(User user)
+        {
+            
         }
 
         void ChooseMenu(User user, string message)
