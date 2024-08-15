@@ -29,8 +29,7 @@ public static class StaticService
     public const string MenuText = "Menu 📖 : ";
     public const string BackText = "Orqaga 🔙";
     public const long SuperAdmin = 1795525299;
-
-
+    
     public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
     {
         long chatId;
@@ -151,18 +150,18 @@ public static class StaticService
         var row1 = new List<KeyboardButton>()
         {
             new (TakeTestText),
-            new(AnalyzeTicket)
+            new (ShowResultText)
         };
 
         var row2 = new List<KeyboardButton>()
         {
-            new (ShowResultText),
             new (MessageToAdminText)
         };
 
         var row3 = new List<KeyboardButton>()
         {
-            new (AboutText)
+            new (AboutText),
+            new(AnalyzeTicket)
         };
 
         buttons.Add(row1);
