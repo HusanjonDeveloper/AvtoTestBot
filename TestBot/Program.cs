@@ -181,6 +181,17 @@ class Program
 
         void ChooseMenu(User user, string message)
         {
+            switch (user.Role)
+            {
+                case UserRole.User: ChooseUserMenu(user,message); break;
+                case UserRole.Admin: ChooseAdminMenu(user,message); break;
+                case UserRole.SuperAdmin: ChooseSuperAdminMenu(user,message); break;
+                default: ChooseUserMenu(user,message); break;
+            }
+        }
+
+        void ChooseUserMenu(User user, string message)
+        {
             try
             {
                 switch (message)
@@ -196,6 +207,16 @@ class Program
             {
                 ShowMenu(user);
             }
+        }
+
+        void ChooseAdminMenu(User user, string message)
+        {
+            
+        }
+
+        void ChooseSuperAdminMenu(User user, string message)
+        {
+            
         }
         
        async void ShowTicket(User user)
