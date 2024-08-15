@@ -408,6 +408,10 @@ class Program
             if (data[0] == "yes")
             {
                 var ticketId = Convert.ToByte(data[1]);
+                var ticket = ticketService.Tickets.Find(x => x.Id == ticketId);
+                ticketService.Tickets.Remove(ticket!);
+                
+                 ticketService.UpdateTicket();
                TicketInfoAndTest(user,ticketId);
             }
             else
