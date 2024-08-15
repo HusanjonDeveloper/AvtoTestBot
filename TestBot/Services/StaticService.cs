@@ -171,6 +171,39 @@ public static class StaticService
        return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
     }
 
+    public static ReplyKeyboardMarkup GetAdminMenu()
+    {
+        var buttons = new List<List<KeyboardButton>>();
+
+        var row1 = new List<KeyboardButton>()
+        {
+            new (TakeTestText)
+        };
+
+        var row2 = new List<KeyboardButton>()
+        {
+            new (ShowResultText),
+            new (GetUsersMessage)
+        };
+
+        var row3 = new List<KeyboardButton>()
+        {
+            new (ChangeAboutText)
+        };
+        var row4 = new List<KeyboardButton>()
+        {
+            new(AddTest),
+            new(DeleteTest)
+        };
+
+        buttons.Add(row1);
+        buttons.Add(row2);
+        buttons.Add(row3);
+        buttons.Add(row4);
+
+        return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
+    }
+
   public static string ResultMessage(string firstname, Ticket ticket)
     {
         var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;

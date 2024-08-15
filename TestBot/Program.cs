@@ -146,9 +146,13 @@ class Program
             bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
         }
 
-        void ShowAdminMenu(User user)
+        void ShowAdminMenu(User user) 
         {
-            
+            user.UserStep = Step.ChooseMenu;
+            userService.UpdateUsser();
+            var keybord = StaticService.GetAdminMenu();
+
+            bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
         }
 
         void ShowSuperAdminMenu(User user)
