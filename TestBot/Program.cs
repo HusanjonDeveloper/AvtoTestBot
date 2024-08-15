@@ -139,32 +139,9 @@ class Program
 
         void ShowUserMenu(User user)
         {
-            var buttons = new List<List<KeyboardButton>>();
-
-            var row1 = new List<KeyboardButton>()
-            {
-                new KeyboardButton(StaticService.TakeTestText)
-            };
-
-            var row2 = new List<KeyboardButton>()
-            {
-                new KeyboardButton(StaticService.ShowResultText),
-                new KeyboardButton(StaticService.MessageToAdminText)
-            };
-
-            var row3 = new List<KeyboardButton>()
-            {
-                new KeyboardButton(StaticService.AboutText)
-            };
-
-            buttons.Add(row1);
-            buttons.Add(row2);
-            buttons.Add(row3);
-
-            var keybord = new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
-
             user.UserStep = Step.ChooseMenu;
             userService.UpdateUsser();
+            var keybord = StaticService.GetUserMenu();
 
             bot.SendTextMessageAsync(user.ChatId, StaticService.MenuText, replyMarkup: keybord);
         }
@@ -179,7 +156,7 @@ class Program
             
         }
 
-        void ChooseMenu(User user, string message)
+        void ChooseMenu(User user, string message) 
         {
             switch (user.Role)
             {
