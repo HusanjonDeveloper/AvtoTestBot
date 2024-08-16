@@ -1,4 +1,5 @@
-﻿using JFA.Telegram.Console;
+﻿using System.Net;
+using JFA.Telegram.Console;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -6,6 +7,7 @@ using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 using TestBot.Entities;
 using TestBot.Services;
+using File = System.IO.File;
 using User = TestBot.Entities.User;
 
 namespace TestBot;
@@ -16,6 +18,7 @@ class Program
         UserService userService = new();
         TestService testService = new();
         TicketService ticketService = new();
+        InfoService infoService = new();
 
         Console.WriteLine("Hello Avto Test Bot : ");
 
@@ -65,6 +68,7 @@ class Program
                         case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
                         case Step.YesOrNo: YesOrNo( user, message,messageId);break;
+                        case Step.ChooseTicketForAnalyze: ChooseTicketForAnalyze(user, message, messageId); break;
                     }   
                 }
             }
@@ -79,7 +83,7 @@ class Program
         {
             var text = StaticService.SendNameText;
             user.UserStep = Step.SaveName;
-            userService.UpdateUsser();
+            userService.UpdateUser();
             bot.SendTextMessageAsync(user.ChatId, text);
         }
 
@@ -87,7 +91,7 @@ class Program
         {
             user.FirstName = message;
             user.UserStep = Step.SavePhoneNumber;
-            userService.UpdateUsser();
+            userService.UpdateUser();
             AskPhoneNumber(user);
         }
 
@@ -104,7 +108,7 @@ class Program
             var keybord = new ReplyKeyboardMarkup(buttoms) { ResizeKeyboard = true };
 
             user.UserStep = Step.SavePhoneNumber;
-            userService.UpdateUsser();
+            userService.UpdateUser();
             var text = check
                 ? "You sent wrong info, so send ur contact with this button. \n If u send, u can go on"
                 : "Number :";
@@ -121,7 +125,7 @@ class Program
             else
             {
                 user.PhoneNumber = number;
-                userService.UpdateUsser();
+                userService.UpdateUser();
                 ShowMenu(user);
             }
         }
@@ -129,7 +133,7 @@ class Program
         void ShowMenu(User user)
         {
             user.UserStep = Step.ChooseMenu;
-            userService.UpdateUsser();
+            userService.UpdateUser();
             ReplyKeyboardMarkup keybord;
                
             switch (user.Role)
@@ -163,7 +167,8 @@ class Program
                     case StaticService.TakeTestText:ShowTicket(user);break;
                     case StaticService.ShowResultText: ShowResults(user); break;
                     case StaticService.MessageToAdminText: break;
-                    case StaticService.AboutText: break;
+                    case StaticService.AboutText: Info(user); break;
+                    case StaticService.AnalyzeTicket: ShowTicketForAnalyze(user); break;
                     default:ShowMenu(user);break;
                 }
             }
@@ -182,12 +187,22 @@ class Program
         {
             
         }
+
+      async  void Info(User user)
+        {
+            var data = File.ReadAllBytes(infoService.Info.PhotoUrl);
+            var ms = new MemoryStream(data);
+            var photo = new InputOnlineFile(ms);
+
+            await bot.SendPhotoAsync(user.ChatId, photo: photo, caption: infoService.Info.Text);
+            ShowMenu(user);
+        }
         
        async void ShowTicket(User user)
         {
             var keybord = StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForTest;
-            userService.UpdateUsser();
+            userService.UpdateUser();
 
           await  bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
               replyMarkup: keybord);
@@ -223,7 +238,7 @@ class Program
                 EndTo = ticketId * 20,
                 TicketId = ticketId
             };
-            userService.UpdateUsser();
+            userService.UpdateUser();
             SendTest(user);
         }
 
@@ -248,7 +263,7 @@ class Program
             {
                 ShowResult(user, ticket!);
                 user.TicketInfo = null;
-                userService.UpdateUsser();
+                userService.UpdateUser();
                 ShowMenu(user);
             }
             else
@@ -285,7 +300,7 @@ class Program
             }
 
             user.TicketInfo.NextTestId += 1;
-            userService.UpdateUsser();
+            userService.UpdateUser();
 
             if (test!.Media.Exist)
             {
@@ -324,7 +339,7 @@ class Program
         {
             var keybord =  StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForResult;
-            userService.UpdateUsser();
+            userService.UpdateUser();
 
            await bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to take a test :)",
                 replyMarkup: keybord);
@@ -365,7 +380,7 @@ class Program
             var keybord = StaticService.GetYerOrNo(ticket.Id);
             var message = StaticService.ResultMessage(user.FirstName,ticket);
             user.UserStep = Step.YesOrNo;
-            userService.UpdateUsser();
+            userService.UpdateUser();
 
             bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
@@ -386,7 +401,7 @@ class Program
             
             var keybord = StaticService.GetYerOrNo(ticketId);
             user.UserStep = Step.YesOrNo;
-            userService.UpdateUsser();
+            userService.UpdateUser();
             
            await bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
             SendingBack(user);
@@ -450,14 +465,97 @@ class Program
             var ticket = ticketService.AddOrUpdate(user.ChatId, tickedId);
             return new(ticket, tickedId, true);
         }
+
+     async  void ShowTicketForAnalyze(User user)
+        {
+            var keybord = StaticService.GetTickets();
+            user.UserStep = Step.ChooseTicketForAnalyze;
+            userService.UpdateUser();
+
+            await  bot.SendTextMessageAsync(user.ChatId, "Choose one of these ticket in order to Analyze Ticket:)",
+                replyMarkup: keybord);
+              
+            SendingBack(user);
+        }
+
+     async void ChooseTicketForAnalyze(User user, string message, int messageId)
+        {
+           await bot.DeleteMessageAsync(user.ChatId, messageId);
+            var (ticket, ticketId, check) = GetTicket(user, message);
+           
+            if(!check)
+                return;
+            
+            var startIndex = 20 * (ticket.Id - 1) + 1;
+            var endIndex = 20 * ticket.Id;
+            
+            var tests = testService.Tests.
+                Where(x => x.Id >= 
+                    startIndex && x.Id <= endIndex)
+                .ToList();
+
+            foreach (var test in tests)
+            {
+                string correctOption = "";
+                foreach (var choice in  test.Choices)
+                {
+                    if (choice.Answer)
+                        correctOption = choice.Text;
+                }
+                
+                var text = $"📌 {test.Id}. {test.Question} \n" +
+                           $"\n ✅ Correct option : \n {correctOption} \n" +
+                           "\n 💡 Description for this correct option : \n" +
+                           $"{test.Description}";
+
+                if (test.Media.Exist)
+                {
+                    var path = $"Autotest/{test.Media.Name}.png";
+                    var data = File.ReadAllBytes(path);
+                    var ms = new MemoryStream(data);
+                    var photo = new InputOnlineFile(ms);
+                  await  bot.SendPhotoAsync(user.ChatId, photo, caption: text);
+                }
+                else
+                {
+                    await bot.SendTextMessageAsync(user.ChatId, text);
+                }
+            }
+            ShowMenu(user);
+        }
         
         async void SendingBack(User user)
         {
             var back = StaticService.Back();
             await bot.SendTextMessageAsync(user.ChatId, "Menu", replyMarkup:back);
         }
-        
-        
-        
+
+       async void SendMessageToAdmin(User user)
+        {
+            var text = "Write message for admin";
+            user.UserStep = Step.SaveMessageForAdmin;
+            userService.UpdateUser();
+            await bot.SendTextMessageAsync(user.ChatId, text);
+            SendingBack(user);
+        }
+
+       /*
+       async void SaveMessageForAdmin(User user, string message)
+        {
+            applicationService.AddApplication(user, message);
+            var text = "Ur message was sent to admin. Later, Admin will contact with u";
+            await bot.SendTextMessageAsync(user.ChatId, text);
+            ShowMenu(user);
+        }
+        */
+
+        void ShowChangingInfo(User user)
+        {
+            
+        }
+       
+       
+       
+       
     }
 }

@@ -8,5 +8,16 @@ public enum Step
     ChooseMenu,
     ChooseTicketForTest,
     ChooseTicketForResult,
-    YesOrNo
+    YesOrNo,
+    ChooseTicketForAnalyze,
+    SaveMessageForAdmin,
+    ChooseChangingInfo,
+    SaveTextInfo,
+    SavePhotoInfo,
+    GetApplicationByDate,
+    SaveAdmin,
+    RemoveAdmin,
+    SendTextAds,
+    SendFullAds,
+    SendFullAdsToAllUsers
 }

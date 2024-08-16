@@ -27,6 +27,8 @@ public static class StaticService
     public const string AddChannelLink = " Kanal link qo'shing 🌐";
     public const string DeleteChenelLink = "Kanal link o'chirish 🗑";
     public const string MenuText = "Menu 📖 : ";
+    
+    
     public const string BackText = "Orqaga 🔙";
     public const long SuperAdmin = 1795525299;
     
@@ -252,7 +254,9 @@ public static class StaticService
         return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
     }
 
-  public static string ResultMessage(string firstname, Ticket ticket)
+    // public static ReplyKeyboardMarkup GetChangingInfo() {}
+
+    public static string ResultMessage(string firstname, Ticket ticket)
     {
         var quality = (ticket?.Result?.CorrecAnswerCount * 1.0 / ticket?.Result?.TotalAnswerCount) * 100;
         return
