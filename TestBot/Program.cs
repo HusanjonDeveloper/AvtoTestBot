@@ -519,7 +519,7 @@ class Program
      async void SendingBack(User user)
         {
             var back = StaticService.Back();
-            await bot.SendTextMessageAsync(user.ChatId, "Menu", replyMarkup:back);
+            await bot.SendTextMessageAsync(user.ChatId, "Back", replyMarkup:back);
         }
 
      async void SendMessageToAdmin(User user)

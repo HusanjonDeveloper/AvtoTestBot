@@ -12,7 +12,7 @@ public class Application
 
     public  string? PhoneNumber { get; set; }
     
-    public  UserRole Role { get; set; }
+    public  string Role { get; set; }
 
     public DateTime CreateDate { get; set; } = DateTime.Now;
 }

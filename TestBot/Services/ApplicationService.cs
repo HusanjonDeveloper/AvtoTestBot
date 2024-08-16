@@ -21,7 +21,7 @@ public class ApplicationService
             Message = message,
             UserName = user.UserName,
             FirstName = user.FirstName,
-            Role = user.Role,
+            Role = user.Role.ToString(),
             PhoneNumber = user.PhoneNumber
         };
         
