@@ -1,5 +1,4 @@
-﻿using System.Net;
-using JFA.Telegram.Console;
+﻿using JFA.Telegram.Console;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -19,6 +18,7 @@ class Program
         TestService testService = new();
         TicketService ticketService = new();
         InfoService infoService = new();
+        ApplicationService applicationService = new();
 
         Console.WriteLine("Hello Avto Test Bot : ");
 
@@ -69,6 +69,7 @@ class Program
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
                         case Step.YesOrNo: YesOrNo( user, message,messageId);break;
                         case Step.ChooseTicketForAnalyze: ChooseTicketForAnalyze(user, message, messageId); break;
+                        case Step.SaveMessageForAdmin: SaveMessageForAdmin(user, message); break;
                     }   
                 }
             }
@@ -166,7 +167,7 @@ class Program
                 {
                     case StaticService.TakeTestText:ShowTicket(user);break;
                     case StaticService.ShowResultText: ShowResults(user); break;
-                    case StaticService.MessageToAdminText: break;
+                    case StaticService.MessageToAdminText: SendMessageToAdmin(user);break;
                     case StaticService.AboutText: Info(user); break;
                     case StaticService.AnalyzeTicket: ShowTicketForAnalyze(user); break;
                     default:ShowMenu(user);break;
@@ -188,7 +189,7 @@ class Program
             
         }
 
-      async  void Info(User user)
+        async  void Info(User user)
         {
             var data = File.ReadAllBytes(infoService.Info.PhotoUrl);
             var ms = new MemoryStream(data);
@@ -198,7 +199,7 @@ class Program
             ShowMenu(user);
         }
         
-       async void ShowTicket(User user)
+        async void ShowTicket(User user)
         {
             var keybord = StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForTest;
@@ -209,8 +210,6 @@ class Program
               
           SendingBack(user);
         }
-       
-        //async void Info(User user)
         
         void SaveTicket(User user, string message, int messageId)
         {
@@ -271,7 +270,7 @@ class Program
                 SendTest(user);
             }
         }
-
+        
         async void SendTest(User user)
         {
             if (user.TicketInfo is null)
@@ -328,14 +327,7 @@ class Program
             //IsClosed(user);
         }
 
-        /*
-      async  void IsClosed(User user)
-        {
-          await Task.Delay(12000);
-            Sending(user,selectedId: -1);
-        }*/
-
-      async  void ShowResults(User user)
+        async  void ShowResults(User user)
         {
             var keybord =  StaticService.GetTickets();
             user.UserStep = Step.ChooseTicketForResult;
@@ -385,7 +377,7 @@ class Program
             bot.SendTextMessageAsync(user.ChatId, message, replyMarkup: keybord);
         }
         
-         async void TellAboutError(User user)
+        async void TellAboutError(User user)
         {
             var text = "u send wrong info, if u wanna take a test , please choose ticket with these buttons. " +
                        "\n  Don't send anything else :)";
@@ -393,8 +385,8 @@ class Program
            await bot.SendTextMessageAsync(user.ChatId, text);
             ShowTicket(user);
         }
-
-       async void NotFoundTicket(User user, int ticketId)
+        
+        async void NotFoundTicket(User user, int ticketId)
         {
             var message = "You did't take this ticket before " +
                           "\n Do you wanna take this ticket now?";
@@ -443,7 +435,7 @@ class Program
             await bot.DeleteMessageAsync(user.ChatId, messageId);
       }
 
-        Tuple<Ticket,byte, bool> GetTicket(User user,string message)
+      Tuple<Ticket,byte, bool> GetTicket(User user,string message)
         {
             var check = StaticService.CheckNumber(message);
             if (check)
@@ -524,13 +516,13 @@ class Program
             ShowMenu(user);
         }
         
-        async void SendingBack(User user)
+     async void SendingBack(User user)
         {
             var back = StaticService.Back();
             await bot.SendTextMessageAsync(user.ChatId, "Menu", replyMarkup:back);
         }
 
-       async void SendMessageToAdmin(User user)
+     async void SendMessageToAdmin(User user)
         {
             var text = "Write message for admin";
             user.UserStep = Step.SaveMessageForAdmin;
@@ -538,24 +530,20 @@ class Program
             await bot.SendTextMessageAsync(user.ChatId, text);
             SendingBack(user);
         }
-
-       /*
-       async void SaveMessageForAdmin(User user, string message)
+       
+     async void SaveMessageForAdmin(User user, string message)
         {
             applicationService.AddApplication(user, message);
             var text = "Ur message was sent to admin. Later, Admin will contact with u";
             await bot.SendTextMessageAsync(user.ChatId, text);
             ShowMenu(user);
         }
-        */
 
         void ShowChangingInfo(User user)
-        {
-            
-        }
-       
-       
-       
-       
+        {}
+
+
+
+
     }
 }
