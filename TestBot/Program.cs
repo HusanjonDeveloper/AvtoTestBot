@@ -569,10 +569,17 @@ class Program
       {
           switch (message)
           {
-              case StaticService.ChangeInfoText: break;
+              case StaticService.ChangeInfoText: AskTextForInfo(user); break;
               case StaticService.ChangeInfoPhoto: break;
                default: ShowChangingInfo(user); break;
           }
+      }
+
+    async  void AskTextForInfo(User user)
+      {
+          var text = " Send text for new Info";
+         await bot.SendTextMessageAsync(user.ChatId, text);
+         SendingBack(user);
       }
 
 
