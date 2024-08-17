@@ -640,6 +640,7 @@ class Program
           
           bot.SendTextMessageAsync(user.ChatId, text);
           SendingBack(user);
+          
 
       }
 
@@ -654,6 +655,7 @@ class Program
 
           bot.SendDocumentAsync(user.ChatId, document: file, caption: "application file");
           ShowMenu(user);
+          
       }
     
     }
