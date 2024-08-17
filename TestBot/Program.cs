@@ -70,6 +70,7 @@ class Program
                         case Step.YesOrNo: YesOrNo( user, message,messageId);break;
                         case Step.ChooseTicketForAnalyze: ChooseTicketForAnalyze(user, message, messageId); break;
                         case Step.SaveMessageForAdmin: SaveMessageForAdmin(user, message); break;
+                        case Step.ChooseChangingInfo: ChooseChangingInfo(user, message); break;
                     }   
                 }
             }
@@ -181,7 +182,23 @@ class Program
 
         void ChooseAdminMenu(User user, string message)
         {
-            
+            try
+            {
+                switch (message)
+                {
+                    case StaticService.TakeTestText:ShowTicket(user);break;
+                    case StaticService.ShowResultText: ShowResults(user); break;
+                    case StaticService.GetUsersMessage: break;
+                    case StaticService.ChangeAboutText: ShowChangingInfo(user); break;
+                    case StaticService.AddTest: break;
+                    case StaticService.DeleteTest: break;
+                    default:ShowMenu(user);break;
+                }
+            }
+            catch (Exception e)
+            {
+                ShowMenu(user);
+            }
         }
 
         void ChooseSuperAdminMenu(User user, string message)
@@ -539,8 +556,24 @@ class Program
             ShowMenu(user);
         }
 
-        void ShowChangingInfo(User user)
-        {}
+      void ShowChangingInfo(User user)
+      {
+          var keybord = StaticService.GetChangingInfo();
+          user.UserStep = Step.ChooseChangingInfo;
+          userService.UpdateUser();
+          
+          bot.SendTextMessageAsync(user.ChatId, "Changing buttons ", replyMarkup:keybord);
+      }
+
+      void ChooseChangingInfo(User user, string message)
+      {
+          switch (message)
+          {
+              case StaticService.ChangeInfoText: break;
+              case StaticService.ChangeInfoPhoto: break;
+               default: ShowChangingInfo(user); break;
+          }
+      }
 
 
 

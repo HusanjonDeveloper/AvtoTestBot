@@ -7,12 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvtoTestBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestBot/obj/rider.project.model.nuget.info" afterDir="false" />
-    </list>
+    <list default="true" id="8a280331-27f2-4ff6-a4d9-e33840257ee4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,10 +34,18 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Entities/Application.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/project.assets.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -142,6 +145,7 @@
       <workItem from="1723560231904" duration="3062000" />
       <workItem from="1723635789916" duration="39000" />
       <workItem from="1723662034981" duration="1257000" />
+      <workItem from="1723725508504" duration="20509000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -351,7 +355,111 @@
       <option name="project" value="LOCAL" />
       <updated>1723560321992</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Test  Err Update find">
+      <option name="closed" value="true" />
+      <created>1723729435484</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1723729435484</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Identifying the user that has crashed">
+      <option name="closed" value="true" />
+      <created>1723729695056</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1723729695056</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Add ShowMenu All users">
+      <option name="closed" value="true" />
+      <created>1723730126840</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1723730126840</updated>
+    </task>
+    <task id="LOCAL-00030" summary="ChooseMenu  Add All">
+      <option name="closed" value="true" />
+      <created>1723730526411</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1723730526411</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Add ShowUserMenu">
+      <option name="closed" value="true" />
+      <created>1723730928934</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1723730928934</updated>
+    </task>
+    <task id="LOCAL-00032" summary="GetAdminMenu">
+      <option name="closed" value="true" />
+      <created>1723735915877</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1723735915877</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Add GetSuperAdimMenu">
+      <option name="closed" value="true" />
+      <created>1723741682881</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1723741682881</updated>
+    </task>
+    <task id="LOCAL-00034" summary="optimization of code">
+      <option name="closed" value="true" />
+      <created>1723742080067</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1723742080067</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Code rub StaticService">
+      <option name="closed" value="true" />
+      <created>1723742544717</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1723742544717</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Code rub all code">
+      <option name="closed" value="true" />
+      <created>1723742997671</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1723742997671</updated>
+    </task>
+    <task id="LOCAL-00037" summary="ChooseTicketForAnalyze">
+      <option name="closed" value="true" />
+      <created>1723776825337</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1723776825337</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Add Application cs">
+      <option name="closed" value="true" />
+      <created>1723778114872</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1723778114872</updated>
+    </task>
+    <task id="LOCAL-00039" summary="CodeRub Role Applecetion">
+      <option name="closed" value="true" />
+      <created>1723778374168</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1723778374168</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,19 +469,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="new" />
-    <MESSAGE value="send ur contect" />
-    <MESSAGE value="With Add Contect" />
-    <MESSAGE value="Create Ticket" />
-    <MESSAGE value="Add SendTest" />
-    <MESSAGE value="Add Static Service" />
-    <MESSAGE value="Code Rub" />
-    <MESSAGE value="Add Ticker" />
-    <MESSAGE value="Add isPollAnswer" />
-    <MESSAGE value="code rub SendTest" />
-    <MESSAGE value="Add GetTicket and ShowResults , ShowResultById" />
-    <MESSAGE value="dey 09 bot" />
-    <MESSAGE value="AssemblyCompanyAttribute" />
     <MESSAGE value="Code Rub Code" />
     <MESSAGE value="Add CheckForProcessing" />
     <MESSAGE value="Add IsClosed" />
@@ -386,6 +481,19 @@
     <MESSAGE value="bug in buttons yes or no has been fixed" />
     <MESSAGE value="code rub" />
     <MESSAGE value="Add nuget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add nuget" />
+    <MESSAGE value="Test  Err Update find" />
+    <MESSAGE value="Identifying the user that has crashed" />
+    <MESSAGE value="Add ShowMenu All users" />
+    <MESSAGE value="ChooseMenu  Add All" />
+    <MESSAGE value="Add ShowUserMenu" />
+    <MESSAGE value="GetAdminMenu" />
+    <MESSAGE value="Add GetSuperAdimMenu" />
+    <MESSAGE value="optimization of code" />
+    <MESSAGE value="Code rub StaticService" />
+    <MESSAGE value="Code rub all code" />
+    <MESSAGE value="ChooseTicketForAnalyze" />
+    <MESSAGE value="Add Application cs" />
+    <MESSAGE value="CodeRub Role Applecetion" />
+    <option name="LAST_COMMIT_MESSAGE" value="CodeRub Role Applecetion" />
   </component>
 </project>
