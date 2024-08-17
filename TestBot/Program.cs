@@ -73,6 +73,7 @@ class Program
                         case Step.ChooseChangingInfo: ChooseChangingInfo(user, message); break;
                         case Step.SaveTextInfo: SaveTextForInfo(user, message); break;
                         case Step.SavePhotoInfo: SavePhotoForInfo(user, update); break;
+                        case Step.GetApplicationByDate: GetMessagesByDate(user,message); break;
                     }   
                 }
             }
@@ -631,6 +632,19 @@ class Program
 
       void GetMessage(User user)
       {
+          var text = "You Should enter from date to date \n" +
+                     "Example: \"day.moth.year,day.moth.year\"";
+
+          user.UserStep = Step.GetApplicationByDate;
+          userService.UpdateUser();
+          
+          bot.SendTextMessageAsync(user.ChatId, text);
+          SendingBack(user);
+
+      }
+
+      void GetMessagesByDate(User user, string message)
+      {
           var applications = applicationService.Applications;
           StaticService.GetApplications(applications);
 
@@ -640,7 +654,6 @@ class Program
 
           bot.SendDocumentAsync(user.ChatId, document: file, caption: "application file");
           ShowMenu(user);
-
       }
     
     }
