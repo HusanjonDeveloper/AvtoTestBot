@@ -71,6 +71,7 @@ class Program
                         case Step.ChooseTicketForAnalyze: ChooseTicketForAnalyze(user, message, messageId); break;
                         case Step.SaveMessageForAdmin: SaveMessageForAdmin(user, message); break;
                         case Step.ChooseChangingInfo: ChooseChangingInfo(user, message); break;
+                        case Step.SaveTextInfo: SaveTextForInfo(user, message); break;
                     }   
                 }
             }
@@ -578,12 +579,17 @@ class Program
     async  void AskTextForInfo(User user)
       {
           var text = " Send text for new Info";
+          user.UserStep = Step.SaveTextInfo;
+          userService.UpdateUser();
          await bot.SendTextMessageAsync(user.ChatId, text);
          SendingBack(user);
       }
 
-
-
-
+      void SaveTextForInfo(User user, string message)
+      {
+          infoService.ChangeInfoText(message);
+          ShowMenu(user);
+      }
+    
     }
 }
