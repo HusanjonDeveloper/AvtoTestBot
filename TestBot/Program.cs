@@ -72,6 +72,7 @@ class Program
                         case Step.SaveMessageForAdmin: SaveMessageForAdmin(user, message); break;
                         case Step.ChooseChangingInfo: ChooseChangingInfo(user, message); break;
                         case Step.SaveTextInfo: SaveTextForInfo(user, message); break;
+                        case Step.SavePhotoInfo: SavePhotoForInfo(user, update); break;
                     }   
                 }
             }
@@ -598,6 +599,31 @@ class Program
           userService.UpdateUser();
           await bot.SendTextMessageAsync(user.ChatId, text);
           SendingBack(user);
+      }
+
+      async void SavePhotoForInfo(User user, Update update)
+      {
+          if (update.Message!.Type == MessageType.Photo)
+          {
+              var photo = update.Message.Photo?.OrderByDescending(x => x.FileSize).First();
+              string photoFileId = photo?.FileId!;
+              
+              var file = await bot.GetFileAsync(photoFileId);
+
+              using var stream = new MemoryStream();
+              await bot.DownloadFileAsync(file.FilePath!, stream);
+
+              string fileUrl = $"{Guid.NewGuid()}.jpg";
+              await File.WriteAllBytesAsync(Path.Combine(fileUrl), stream.ToArray());
+              infoService.ChangeInfoPhotoUrl(fileUrl);
+              ShowMenu(user);
+          }
+          else
+          {
+              await bot.SendTextMessageAsync(user.ChatId, "Please , send only photo !");
+              AskPhotoForInfo(user);
+          }
+
       }
     
     }
