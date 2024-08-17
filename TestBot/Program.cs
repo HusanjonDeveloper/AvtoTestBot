@@ -615,6 +615,9 @@ class Program
 
               string fileUrl = $"{Guid.NewGuid()}.jpg";
               await File.WriteAllBytesAsync(Path.Combine(fileUrl), stream.ToArray());
+              
+              File.Delete(infoService.Info.PhotoUrl);
+                  
               infoService.ChangeInfoPhotoUrl(fileUrl);
               ShowMenu(user);
           }
