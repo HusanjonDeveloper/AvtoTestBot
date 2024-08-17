@@ -1,4 +1,5 @@
 
+using OfficeOpenXml;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -29,7 +30,7 @@ public static class StaticService
     public const string MenuText = "Menu 📖 : ";
     public const string ChangeInfoText = "Change Info Text";
     public const string ChangeInfoPhoto = "Change Info Photo";
-    
+    public const string ApplicationPath = "applications.xlsx";
     public const string BackText = "Orqaga 🔙";
     public const long SuperAdmin = 1795525299;
     
@@ -287,5 +288,34 @@ public static class StaticService
             $"📊 Sifat : {quality}%\r\n" +
             $"📆 {ticket.TookAt:d} ⏰ {ticket.TookAt:t}\r\n" +
             "\r\n------------------------\r\n";
+    }
+
+    public static void GetApplications(List<Application> applications)
+    {
+        using var package = new ExcelPackage();
+        var worksheet = package.Workbook.Worksheets.Add("sheet1");
+
+        worksheet.Cells[1, 1].Value = "Numbers";
+        worksheet.Cells[1, 2].Value = "FirstName";
+        worksheet.Cells[1, 3].Value = "UserName";
+        worksheet.Cells[1, 4].Value = "PhoneNumber";
+        worksheet.Cells[1, 5].Value = "Role";
+        worksheet.Cells[1, 6].Value = "Message";
+        worksheet.Cells[1, 7].Value = "CreateDate";
+
+        var row = 2;
+        foreach (var application in applications)
+        {
+            worksheet.Cells[row, 1].Value = row - 1;
+            worksheet.Cells[row, 2].Value = application.FirstName;
+            worksheet.Cells[row, 3].Value = application.UserName;
+            worksheet.Cells[row, 4].Value = application.PhoneNumber;
+            worksheet.Cells[row, 5].Value = application.Role;
+            worksheet.Cells[row, 6].Value = application.Message;
+            worksheet.Cells[row, 7].Value = application.CreateDate.ToString("f");
+            row++;
+        }
+        
+        package.SaveAs(new  FileInfo(ApplicationPath));
     }
 }

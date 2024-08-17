@@ -190,7 +190,7 @@ class Program
                 {
                     case StaticService.TakeTestText:ShowTicket(user);break;
                     case StaticService.ShowResultText: ShowResults(user); break;
-                    case StaticService.GetUsersMessage: break;
+                    case StaticService.GetUsersMessage: GetMessage(user); break;
                     case StaticService.ChangeAboutText: ShowChangingInfo(user); break;
                     case StaticService.AddTest: break;
                     case StaticService.DeleteTest: break;
@@ -626,6 +626,20 @@ class Program
               await bot.SendTextMessageAsync(user.ChatId, "Please , send only photo !");
               AskPhotoForInfo(user);
           }
+
+      }
+
+      void GetMessage(User user)
+      {
+          var applications = applicationService.Applications;
+          StaticService.GetApplications(applications);
+
+          var data = File.ReadAllBytes(StaticService.ApplicationPath);
+          var ms = new MemoryStream(data);
+          var file = new InputOnlineFile(ms);
+
+          bot.SendDocumentAsync(user.ChatId, document: file, caption: "application file");
+          ShowMenu(user);
 
       }
     
