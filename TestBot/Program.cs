@@ -571,7 +571,7 @@ class Program
           switch (message)
           {
               case StaticService.ChangeInfoText: AskTextForInfo(user); break;
-              case StaticService.ChangeInfoPhoto: break;
+              case StaticService.ChangeInfoPhoto: AskPhotoForInfo(user); break;
                default: ShowChangingInfo(user); break;
           }
       }
@@ -589,6 +589,15 @@ class Program
       {
           infoService.ChangeInfoText(message);
           ShowMenu(user);
+      }
+
+      async void AskPhotoForInfo(User user)
+      {
+          var text = " Send photo for new Info";
+          user.UserStep = Step.SavePhotoInfo;
+          userService.UpdateUser();
+          await bot.SendTextMessageAsync(user.ChatId, text);
+          SendingBack(user);
       }
     
     }
