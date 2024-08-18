@@ -169,16 +169,9 @@ public static class StaticService
         {
             new (Constants.ChangeAboutText)
         };
-        var row4 = new List<KeyboardButton>()
-        {
-            new(Constants.AddTest),
-            new(Constants.DeleteTest)
-        };
-
         buttons.Add(row1);
         buttons.Add(row2);
         buttons.Add(row3);
-        buttons.Add(row4);
 
         return  new ReplyKeyboardMarkup(buttons) { ResizeKeyboard = true };
     }

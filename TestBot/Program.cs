@@ -193,8 +193,6 @@ class Program
                     case Constants.ShowResultText: ShowResults(user); break;
                     case Constants.GetUsersMessage: GetMessage(user); break;
                     case Constants.ChangeAboutText: ShowChangingInfo(user); break;
-                    case Constants.AddTest: break;
-                    case Constants.DeleteTest: break;
                     default:ShowMenu(user);break;
                 }
             }
@@ -669,8 +667,11 @@ class Program
       {
           return message.Contains(',');
       }
-    
-      
+
+      void AddTest(User user)
+      {
+          
+      }
       
       
       
