@@ -318,4 +318,21 @@ public static class StaticService
         
         package.SaveAs(new  FileInfo(ApplicationPath));
     }
+    
+  public static List<Application> SortApplicationByDate(List<Application> applications,string message)
+    {
+        var data = message.Split(',').ToArray();
+        var fromDateData = data[0].Split('.').ToArray();
+        var toDateData = data[1].Split('.').ToArray();
+
+
+        var fromDate = new DateTime(year:int.Parse(fromDateData[2]),month:int.Parse(fromDateData[1]),day:int.Parse(fromDateData[0]));
+        var toDate = new DateTime(year:int.Parse(toDateData[2]),month:int.Parse(toDateData[1]),day:int.Parse(toDateData[0]));
+        toDate =  toDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+
+        var sortedApplications = applications
+            .Where(x => x.CreateDate >= fromDate && x.CreateDate <= toDate).ToList();
+
+        return applications;
+    }
 }
