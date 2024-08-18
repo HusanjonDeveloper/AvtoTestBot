@@ -578,7 +578,7 @@ class Program
           }
       }
 
-    async  void AskTextForInfo(User user)
+      async  void AskTextForInfo(User user)
       {
           var text = " Send text for new Info";
           user.UserStep = Step.SaveTextInfo;
@@ -646,6 +646,12 @@ class Program
 
       void GetMessagesByDate(User user, string message)
       {
+          if (!CheckDate(message))
+          {
+              GetMessage(user);
+              return;
+          }
+          
           var applications = applicationService.Applications;
           StaticService.GetApplications(applications);
 
@@ -657,6 +663,20 @@ class Program
           ShowMenu(user);
           
       }
+      
+      List<Application> SortApplicationByDate(string message)
+      {
+          var 
+      }
+      
+      bool CheckDate(string message)
+      {
+          return message.Contains(',');
+      }
     
+      
+      
+      
+      
     }
 }
