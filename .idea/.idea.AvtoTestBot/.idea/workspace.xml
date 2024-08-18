@@ -34,7 +34,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ebcfbd38c7e7a68eb9165e618a5efeebe5ee8bdb8aa04ccbfa7e6ab9dc1540/Contact.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Entities/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -42,10 +41,15 @@
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Services/StaticService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -146,38 +150,7 @@
       <workItem from="1723635789916" duration="39000" />
       <workItem from="1723662034981" duration="1257000" />
       <workItem from="1723725508504" duration="20509000" />
-    </task>
-    <task id="LOCAL-00001" summary="new">
-      <option name="closed" value="true" />
-      <created>1720769771097</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1720769771097</updated>
-    </task>
-    <task id="LOCAL-00002" summary="send ur contect">
-      <option name="closed" value="true" />
-      <created>1720798705713</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1720798705713</updated>
-    </task>
-    <task id="LOCAL-00003" summary="With Add Contect">
-      <option name="closed" value="true" />
-      <created>1721037519445</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1721037519445</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Create Ticket">
-      <option name="closed" value="true" />
-      <created>1721055285263</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1721055285263</updated>
+      <workItem from="1723890883114" duration="17493000" />
     </task>
     <task id="LOCAL-00005" summary="Add SendTest">
       <option name="closed" value="true" />
@@ -459,7 +432,119 @@
       <option name="project" value="LOCAL" />
       <updated>1723778374168</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Add ChooseAdminMenu">
+      <option name="closed" value="true" />
+      <created>1723923694596</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1723923694596</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Add AskTextForInfo">
+      <option name="closed" value="true" />
+      <created>1723923849949</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1723923849950</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Add SaveTextForInfo">
+      <option name="closed" value="true" />
+      <created>1723924085999</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1723924085999</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Add AskPhotoForInfo">
+      <option name="closed" value="true" />
+      <created>1723924251545</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1723924251545</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Add SavePhotoForInfo">
+      <option name="closed" value="true" />
+      <created>1723925686243</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1723925686243</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Delete PhotoUrl">
+      <option name="closed" value="true" />
+      <created>1723925879192</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1723925879192</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Add GetApplications">
+      <option name="closed" value="true" />
+      <created>1723936714423</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1723936714424</updated>
+    </task>
+    <task id="LOCAL-00047" summary="GetMessagesByDate">
+      <option name="closed" value="true" />
+      <created>1723937184434</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1723937184434</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add GetMessagesByDate">
+      <option name="closed" value="true" />
+      <created>1723937299573</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1723937299573</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add CheckDate">
+      <option name="closed" value="true" />
+      <created>1723939583002</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1723939583002</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add SortApplicationByDate">
+      <option name="closed" value="true" />
+      <created>1723941078250</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1723941078255</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add SortApplicationByDate">
+      <option name="closed" value="true" />
+      <created>1723943966487</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1723943966487</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Add Constants">
+      <option name="closed" value="true" />
+      <created>1723944299640</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1723944299640</updated>
+    </task>
+    <task id="LOCAL-00053" summary="COdeRub : AddTest">
+      <option name="closed" value="true" />
+      <created>1723944676589</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1723944676589</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,19 +554,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Code Rub Code" />
-    <MESSAGE value="Add CheckForProcessing" />
-    <MESSAGE value="Add IsClosed" />
-    <MESSAGE value="code rub All code" />
-    <MESSAGE value="Fixed bug in test shipment" />
-    <MESSAGE value="Add Back Buttom" />
-    <MESSAGE value="update code" />
-    <MESSAGE value="The error in displaying the result has been corrected" />
-    <MESSAGE value="Add retake" />
-    <MESSAGE value="bug in buttons yes or no has been fixed" />
-    <MESSAGE value="code rub" />
-    <MESSAGE value="Add nuget" />
-    <MESSAGE value="Test  Err Update find" />
     <MESSAGE value="Identifying the user that has crashed" />
     <MESSAGE value="Add ShowMenu All users" />
     <MESSAGE value="ChooseMenu  Add All" />
@@ -494,6 +566,19 @@
     <MESSAGE value="ChooseTicketForAnalyze" />
     <MESSAGE value="Add Application cs" />
     <MESSAGE value="CodeRub Role Applecetion" />
-    <option name="LAST_COMMIT_MESSAGE" value="CodeRub Role Applecetion" />
+    <MESSAGE value="Add ChooseAdminMenu" />
+    <MESSAGE value="Add AskTextForInfo" />
+    <MESSAGE value="Add SaveTextForInfo" />
+    <MESSAGE value="Add AskPhotoForInfo" />
+    <MESSAGE value="Add SavePhotoForInfo" />
+    <MESSAGE value="Delete PhotoUrl" />
+    <MESSAGE value="Add GetApplications" />
+    <MESSAGE value="GetMessagesByDate" />
+    <MESSAGE value="Add GetMessagesByDate" />
+    <MESSAGE value="Add CheckDate" />
+    <MESSAGE value="Add SortApplicationByDate" />
+    <MESSAGE value="Add Constants" />
+    <MESSAGE value="COdeRub : AddTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="COdeRub : AddTest" />
   </component>
 </project>

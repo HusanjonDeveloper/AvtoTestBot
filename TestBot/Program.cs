@@ -204,7 +204,27 @@ class Program
 
         void ChooseSuperAdminMenu(User user, string message)
         {
-            
+            try
+            {
+                switch (message)
+                {
+                    case Constants.TakeTestText:ShowTicket(user);break;
+                    case Constants.ShowResultText: ShowResults(user); break;
+                    case Constants.GetUsersMessage: GetMessage(user); break;
+                    case Constants.ChangeAboutText: ShowChangingInfo(user); break;
+                    case Constants.AddAdmin: break;
+                    case Constants.RemoveAdmin: break;
+                    case Constants.SendTextAds: break;
+                    case Constants.SendFullAds: break;
+                    case Constants.AddChannelLink: break;
+                    case Constants.DeleteChenelLink: break;
+                    default:ShowMenu(user);break;
+                }
+            }
+            catch (Exception e)
+            {
+                ShowMenu(user);
+            }
         }
 
         async  void Info(User user)
@@ -668,12 +688,14 @@ class Program
           return message.Contains(',');
       }
 
-      void AddTest(User user)
+      void AddAdmin(User user)
       {
+          var text = "For Admin you should send chatId of user :) \n " +
+                     "if you don't know of chatId of the user, you can get chatId of user from Telegram bot \n "+
+                     "https://t.me/username_to_id_bot";
           
+          bot.SendTextMessageAsync(user.ChatId, text:text);
+          SendingBack(user);
       }
-      
-      
-      
     }
 }
