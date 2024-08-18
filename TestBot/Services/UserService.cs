@@ -27,7 +27,7 @@ public class UserService
                 Role = UserRole.User
             };
 
-            if (user.ChatId == StaticService.SuperAdmin)
+            if (user.ChatId == Constants.SuperAdmin)
                 user.Role = UserRole.SuperAdmin;
             
             Users.Add(user);

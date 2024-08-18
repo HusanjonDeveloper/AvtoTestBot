@@ -9,31 +9,6 @@ namespace TestBot.Services;
 
 public static class StaticService
 {
-    public const string SendNameText = "Iltimos, ismingizni yuboring 🧑🏻";
-    public const string  SendContectText = "Kontaktingizni yuboring  📞";
-    public const string TakeTestText = "Test Ishlash \ud83d\udccb";
-    public const string ShowResultText = "Natijani ko'rsatish \ud83d\udcca";
-    public const string MessageToAdminText = "Adminga xabar yuboring 👨🏻‍💻";
-    public const string GetUsersMessage = "kelgan xabar oling 📨 ";
-    public const string AboutText = "Men haqimda ℹ️";
-    public const string AnalyzeTicket = "savol tahlil qiling 📑 ";
-    public const string ChangeAboutText = "Ma'lumotni o'zgartirish 👩🏻‍💻";
-    public const string AddTest = "Test qo'sh ✙";
-    public const string DeleteTest = "Testni o'chirish 🗑";
-    public const string AddAdmin = "Admin Qosh ✙";
-    public const string RemoveAdmin = "Admini o'chirish ⛔";
-    public const string SendTextAds = "Matnli reklama yuborish 📢";
-    public const string SendFullAds = "To'liq e'lon yuboring 📢";
-    public const string GetAllUsers = "Barcha foydalanuchi  🙋🏻‍♂️";
-    public const string AddChannelLink = " Kanal link qo'shing 🌐";
-    public const string DeleteChenelLink = "Kanal link o'chirish 🗑";
-    public const string MenuText = "Menu 📖 : ";
-    public const string ChangeInfoText = "Change Info Text";
-    public const string ChangeInfoPhoto = "Change Info Photo";
-    public const string ApplicationPath = "applications.xlsx";
-    public const string BackText = "Orqaga 🔙";
-    public const long SuperAdmin = 1795525299;
-    
     public static Tuple<long, string?, string, int, bool, bool> GetData(Update update)
     {
         long chatId;
@@ -139,7 +114,7 @@ public static class StaticService
 
         var rows = new List<KeyboardButton>()
         {
-            new KeyboardButton(BackText)
+            new KeyboardButton(Constants.BackText)
         };
         
         buttoms.Add(rows);
@@ -153,19 +128,19 @@ public static class StaticService
 
         var row1 = new List<KeyboardButton>()
         {
-            new (TakeTestText),
-            new (ShowResultText)
+            new (Constants.TakeTestText),
+            new (Constants.ShowResultText)
         };
 
         var row2 = new List<KeyboardButton>()
         {
-            new (MessageToAdminText)
+            new (Constants.MessageToAdminText)
         };
 
         var row3 = new List<KeyboardButton>()
         {
-            new (AboutText),
-            new(AnalyzeTicket)
+            new (Constants.AboutText),
+            new(Constants.AnalyzeTicket)
         };
 
         buttons.Add(row1);
@@ -181,23 +156,23 @@ public static class StaticService
 
         var row1 = new List<KeyboardButton>()
         {
-            new (TakeTestText)
+            new (Constants.TakeTestText)
         };
 
         var row2 = new List<KeyboardButton>()
         {
-            new (ShowResultText),
-            new (GetUsersMessage)
+            new (Constants.ShowResultText),
+            new (Constants.GetUsersMessage)
         };
 
         var row3 = new List<KeyboardButton>()
         {
-            new (ChangeAboutText)
+            new (Constants.ChangeAboutText)
         };
         var row4 = new List<KeyboardButton>()
         {
-            new(AddTest),
-            new(DeleteTest)
+            new(Constants.AddTest),
+            new(Constants.DeleteTest)
         };
 
         buttons.Add(row1);
@@ -213,37 +188,37 @@ public static class StaticService
 
         var row1 = new List<KeyboardButton>()
         {
-            new (TakeTestText),
-            new (ShowResultText),
+            new (Constants.TakeTestText),
+            new (Constants.ShowResultText),
         };
 
         var row2 = new List<KeyboardButton>()
         {
            
-            new (GetUsersMessage),
-            new (ChangeAboutText)
+            new (Constants.GetUsersMessage),
+            new (Constants.ChangeAboutText)
         };
 
         var row3 = new List<KeyboardButton>()
         {
-            new(AddTest),
-            new(DeleteTest)
+            new(Constants.AddTest),
+            new(Constants.DeleteTest)
         };
         var row4 = new List<KeyboardButton>()
         {
-            new(AddAdmin),
-            new(RemoveAdmin)
+            new(Constants.AddAdmin),
+            new(Constants.RemoveAdmin)
         };
         var row5 = new List<KeyboardButton>()
         {
-            new(SendTextAds),
-            new(SendFullAds)
+            new(Constants.SendTextAds),
+            new(Constants.SendFullAds)
         };
         var row6 = new List<KeyboardButton>()
         {
-            new(GetAllUsers),
-            new(AddChannelLink),
-            new(DeleteChenelLink)
+            new(Constants.GetAllUsers),
+            new(Constants.AddChannelLink),
+            new(Constants.DeleteChenelLink)
         };
 
         buttons.Add(row1);
@@ -262,12 +237,12 @@ public static class StaticService
 
         var rows1 = new List<KeyboardButton>()
         {
-            new KeyboardButton(ChangeInfoText),
-            new KeyboardButton(ChangeInfoPhoto)
+            new KeyboardButton(Constants.ChangeInfoText),
+            new KeyboardButton(Constants.ChangeInfoPhoto)
         };
         var row2 = new List<KeyboardButton>()
         {
-            new(BackText)
+            new(Constants.BackText)
         };
         
         buttons.Add(rows1);
@@ -316,7 +291,7 @@ public static class StaticService
             row++;
         }
         
-        package.SaveAs(new  FileInfo(ApplicationPath));
+        package.SaveAs(new  FileInfo(Constants.ApplicationPath));
     }
     
   public static List<Application> SortApplicationByDate(List<Application> applications,string message)

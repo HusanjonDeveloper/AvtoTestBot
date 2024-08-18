@@ -44,7 +44,7 @@ class Program
                 int selectedId = int.Parse(message);
                 Sending(user, selectedId);
             }
-            else if(message == StaticService.BackText)
+            else if(message == Constants.BackText)
             {
                  ShowMenu(user);
             }
@@ -86,7 +86,7 @@ class Program
 
         void AskName(User user)
         {
-            var text = StaticService.SendNameText;
+            var text = Constants.SendNameText;
             user.UserStep = Step.SaveName;
             userService.UpdateUser();
             bot.SendTextMessageAsync(user.ChatId, text);
@@ -106,7 +106,7 @@ class Program
 
             var row = new List<KeyboardButton>()
             {
-                KeyboardButton.WithRequestContact(StaticService.SendContectText)
+                KeyboardButton.WithRequestContact(Constants.SendContectText)
             };
             buttoms.Add(row);
 
@@ -169,11 +169,11 @@ class Program
             {
                 switch (message)
                 {
-                    case StaticService.TakeTestText:ShowTicket(user);break;
-                    case StaticService.ShowResultText: ShowResults(user); break;
-                    case StaticService.MessageToAdminText: SendMessageToAdmin(user);break;
-                    case StaticService.AboutText: Info(user); break;
-                    case StaticService.AnalyzeTicket: ShowTicketForAnalyze(user); break;
+                    case Constants.TakeTestText:ShowTicket(user);break;
+                    case Constants.ShowResultText: ShowResults(user); break;
+                    case Constants.MessageToAdminText: SendMessageToAdmin(user);break;
+                    case Constants.AboutText: Info(user); break;
+                    case Constants.AnalyzeTicket: ShowTicketForAnalyze(user); break;
                     default:ShowMenu(user);break;
                 }
             }
@@ -189,12 +189,12 @@ class Program
             {
                 switch (message)
                 {
-                    case StaticService.TakeTestText:ShowTicket(user);break;
-                    case StaticService.ShowResultText: ShowResults(user); break;
-                    case StaticService.GetUsersMessage: GetMessage(user); break;
-                    case StaticService.ChangeAboutText: ShowChangingInfo(user); break;
-                    case StaticService.AddTest: break;
-                    case StaticService.DeleteTest: break;
+                    case Constants.TakeTestText:ShowTicket(user);break;
+                    case Constants.ShowResultText: ShowResults(user); break;
+                    case Constants.GetUsersMessage: GetMessage(user); break;
+                    case Constants.ChangeAboutText: ShowChangingInfo(user); break;
+                    case Constants.AddTest: break;
+                    case Constants.DeleteTest: break;
                     default:ShowMenu(user);break;
                 }
             }
@@ -572,8 +572,8 @@ class Program
       {
           switch (message)
           {
-              case StaticService.ChangeInfoText: AskTextForInfo(user); break;
-              case StaticService.ChangeInfoPhoto: AskPhotoForInfo(user); break;
+              case Constants.ChangeInfoText: AskTextForInfo(user); break;
+              case Constants.ChangeInfoPhoto: AskPhotoForInfo(user); break;
                default: ShowChangingInfo(user); break;
           }
       }
@@ -656,7 +656,7 @@ class Program
           var sortedApplications = StaticService.SortApplicationByDate(applications,message);
           StaticService.GetApplications(sortedApplications);
 
-          var data = File.ReadAllBytes(StaticService.ApplicationPath);
+          var data = File.ReadAllBytes(Constants.ApplicationPath);
           var ms = new MemoryStream(data);
           var file = new InputOnlineFile(ms);
 
@@ -664,6 +664,7 @@ class Program
           ShowMenu(user);
           
       }
+      
       bool CheckDate(string message)
       {
           return message.Contains(',');
