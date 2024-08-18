@@ -651,8 +651,8 @@ class Program
               GetMessage(user);
               return;
           }
-          
-          var applications = applicationService.Applications;
+
+          var applications = SortApplicationByDate(message);
           StaticService.GetApplications(applications);
 
           var data = File.ReadAllBytes(StaticService.ApplicationPath);
@@ -663,12 +663,23 @@ class Program
           ShowMenu(user);
           
       }
-      
+
       List<Application> SortApplicationByDate(string message)
       {
-          var 
+          var data = message.Split(',').ToArray();
+          var fromDateData = data[0].Split('.').ToArray();
+          var toDateData = data[1].Split('.').ToArray();
+
+
+          var fromDate = new DateTime(year:int.Parse(fromDateData[2]),month:int.Parse(fromDateData[1]),day:int.Parse(fromDateData[0]));
+          var toDate = new DateTime(year:int.Parse(toDateData[2]),month:int.Parse(toDateData[1]),day:int.Parse(toDateData[0]));
+
+          var applications = applicationService.Applications
+              .Where(x => x.CreateDate >= fromDate && x.CreateDate <= toDate).ToList();
+
+          return applications;
       }
-      
+
       bool CheckDate(string message)
       {
           return message.Contains(',');
