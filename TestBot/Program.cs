@@ -723,6 +723,7 @@ class Program
               return;
           }
 
+          
           userForAdmin.Role = UserRole.Admin;
           userService.UpdateUser();
           ShowMenu(user);
