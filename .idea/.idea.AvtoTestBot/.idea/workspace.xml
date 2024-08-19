@@ -36,20 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d7c792bdad961b744b9a95ce83cf51d344ce107198102362ce9856d954a2bd/Message.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestBot/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/a1234/RiderProjects/AvtoTestBot/TestBot/obj/Debug/net7.0/TestBot.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -151,14 +138,7 @@
       <workItem from="1723662034981" duration="1257000" />
       <workItem from="1723725508504" duration="20509000" />
       <workItem from="1723890883114" duration="17493000" />
-    </task>
-    <task id="LOCAL-00005" summary="Add SendTest">
-      <option name="closed" value="true" />
-      <created>1721056689073</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1721056689073</updated>
+      <workItem from="1724004378919" duration="2100000" />
     </task>
     <task id="LOCAL-00006" summary="Add Static Service">
       <option name="closed" value="true" />
@@ -544,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723944676589</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="coderub : incomplete (AddAdmin)">
+      <option name="closed" value="true" />
+      <created>1724008985951</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1724008985951</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +542,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Identifying the user that has crashed" />
     <MESSAGE value="Add ShowMenu All users" />
     <MESSAGE value="ChooseMenu  Add All" />
     <MESSAGE value="Add ShowUserMenu" />
@@ -579,6 +566,7 @@
     <MESSAGE value="Add SortApplicationByDate" />
     <MESSAGE value="Add Constants" />
     <MESSAGE value="COdeRub : AddTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="COdeRub : AddTest" />
+    <MESSAGE value="coderub : incomplete (AddAdmin)" />
+    <option name="LAST_COMMIT_MESSAGE" value="coderub : incomplete (AddAdmin)" />
   </component>
 </project>
