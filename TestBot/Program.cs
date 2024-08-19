@@ -74,6 +74,7 @@ class Program
                         case Step.SaveTextInfo: SaveTextForInfo(user, message); break;
                         case Step.SavePhotoInfo: SavePhotoForInfo(user, update); break;
                         case Step.GetApplicationByDate: GetMessagesByDate(user,message); break;
+                        case Step.SaveAdmin: SaveAdmin(user, message); break;
                     }   
                 }
             }
@@ -699,5 +700,36 @@ class Program
           bot.SendTextMessageAsync(user.ChatId, text:text);
           SendingBack(user);
       }
+
+      void SaveAdmin(User user, string message)
+      {
+          var check = StaticService.CheckNumber(message);
+
+          if (check)
+          {
+              var text = "It is invalid id, please send correct chtId";
+              bot.SendTextMessageAsync(user.ChatId, text);
+              return;
+          }
+
+          long chatId = Convert.ToInt64(message);
+
+          var userForAdmin = userService.Users.FirstOrDefault(x => x.ChatId == chatId);
+
+          if (userForAdmin is null)
+          {
+              var text = "Not found user with htis chatId please check chatId and try again";
+              bot.SendTextMessageAsync(user.ChatId, text);
+              return;
+          }
+
+          userForAdmin.Role = UserRole.Admin;
+          userService.UpdateUser();
+          ShowMenu(user);
+          ShowMenu(userForAdmin);
+
+      }
+      
+      
     }
 }
