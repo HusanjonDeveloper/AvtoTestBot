@@ -217,7 +217,7 @@ class Program
                     case Constants.ChangeAboutText: ShowChangingInfo(user); break;
                     case Constants.AddAdmin: AddAdmin(user);break;
                     case Constants.RemoveAdmin: RemoveAdmin(user); break;
-                    case Constants.SendTextAds: break;
+                    case Constants.SendTextAds: SendTextAds(user); break;
                     case Constants.SendFullAds: break;
                     case Constants.AddChannelLink: break;
                     case Constants.DeleteChenelLink: break;
