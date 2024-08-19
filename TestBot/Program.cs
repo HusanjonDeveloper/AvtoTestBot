@@ -75,6 +75,7 @@ class Program
                         case Step.SavePhotoInfo: SavePhotoForInfo(user, update); break;
                         case Step.GetApplicationByDate: GetMessagesByDate(user,message); break;
                         case Step.SaveAdmin: SaveAdmin(user, message); break;
+                        case Step.RemoveAdmin: RemoveAdminFromData(user,message);break;
                     }   
                 }
             }
@@ -214,7 +215,7 @@ class Program
                     case Constants.GetUsersMessage: GetMessage(user); break;
                     case Constants.ChangeAboutText: ShowChangingInfo(user); break;
                     case Constants.AddAdmin: AddAdmin(user);break;
-                    case Constants.RemoveAdmin: break;
+                    case Constants.RemoveAdmin: RemoveAdmin(user); break;
                     case Constants.SendTextAds: break;
                     case Constants.SendFullAds: break;
                     case Constants.AddChannelLink: break;
@@ -691,7 +692,7 @@ class Program
 
       void AddAdmin(User user)
       {
-          var text = "For Admin you should send chatId of user :) \n " +
+          var text = "For Adding  Admin you should send chatId of user :) \n " +
                      "if you don't know of chatId of the user, you can get chatId of user from Telegram bot \n "+
                      "https://t.me/username_to_id_bot";
 
@@ -730,7 +731,55 @@ class Program
           ShowMenu(userForAdmin);
 
       }
-      
+
+      void RemoveAdmin(User user)
+      {
+          var text = "For Removing  Admin you should send chatId of user :) \n " +
+                     "if you don't know of chatId of the user, you can get chatId of user from Telegram bot \n "+
+                     "https://t.me/username_to_id_bot";
+
+          user.UserStep = Step.RemoveAdmin;
+          userService.UpdateUser();
+          bot.SendTextMessageAsync(user.ChatId, text:text);
+          SendingBack(user);
+      }
+
+      void RemoveAdminFromData(User user, string message)
+      {
+          var check = StaticService.CheckNumber(message);
+
+          if (check)
+          {
+              var text = "It is invalid id, please send correct chtId";
+              bot.SendTextMessageAsync(user.ChatId, text);
+              return;
+          }
+
+          long chatId = Convert.ToInt64(message);
+          var forRemovingAdmin = userService.Users.FirstOrDefault(x => x.ChatId == chatId);
+          
+          if (forRemovingAdmin is null)
+          {
+              var text = "Not found user with htis chatId please check chatId and try again";
+              bot.SendTextMessageAsync(user.ChatId, text);
+              return;
+          }
+
+          if (forRemovingAdmin.Role == UserRole.User || forRemovingAdmin.Role == UserRole.SuperAdmin)
+          {
+              var text = "The use is not admin !. /n" +
+                         "Please, Try again";
+              ShowMenu(user);
+              return;
+          }
+
+          forRemovingAdmin.Role = UserRole.User;
+          userService.UpdateUser();
+          
+          ShowMenu(user);
+          ShowMenu(forRemovingAdmin);
+
+      }
       
     }
 }
