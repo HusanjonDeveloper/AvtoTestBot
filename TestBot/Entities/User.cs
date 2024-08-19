@@ -10,4 +10,6 @@ public class User
     public  UserRole Role { get; set; }
     public TicketInfo? TicketInfo { get; set; }
 
+    public string? AdsMessage;
+
 }

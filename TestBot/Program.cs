@@ -77,6 +77,7 @@ class Program
                         case Step.SaveAdmin: SaveAdmin(user, message); break;
                         case Step.RemoveAdmin: RemoveAdminFromData(user,message); break;
                         case Step.SendTextAds : sendTextAdsToUser(user,message); break;
+                        case Step.SendFullAds: SaveTextAndAskPhotoForAds(user,message); break;
                     }   
                 }
             }
@@ -811,7 +812,17 @@ class Program
           bot.SendTextMessageAsync(user.ChatId, text);
           SendingBack(user);
       }
-      
+
+
+      void SaveTextAndAskPhotoForAds(User user, string text)
+      {
+          user.AdsMessage = text;
+          user.UserStep = Step.SendFullAdsToAllUsers;
+          var message = "Send Photo for this ads";
+          bot.SendTextMessageAsync(user.ChatId, message);
+
+
+      }
       
       
     }
