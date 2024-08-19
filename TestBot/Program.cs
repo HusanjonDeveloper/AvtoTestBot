@@ -835,16 +835,23 @@ class Program
 
               using var stream = new MemoryStream();
               await bot.DownloadFileAsync(file.FilePath!, stream);
-
-              var adsPhoto = new InputOnlineFile(stream);
+              string fileUrl = $"{Guid.NewGuid()}.jpg";
+              await File.WriteAllBytesAsync(Path.Combine(fileUrl), stream.ToArray());
+             
               var users = userService.Users;
+              
               foreach (var iteamUser in users)
               {
+                  var data = File.ReadAllBytes(fileUrl);
+                  var ms = new MemoryStream(data);
+                  var adsPhoto = new InputOnlineFile(ms);
+
                   await bot.SendPhotoAsync(iteamUser.ChatId, photo:adsPhoto, caption: user.AdsMessage);
               }
 
               await  bot.SendTextMessageAsync(user.ChatId, "Ads was send to all users Succsessfully");
-
+              
+              File.Delete(fileUrl);
               ShowMenu(user);
           }
           else
