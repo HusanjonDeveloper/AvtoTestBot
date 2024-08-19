@@ -218,7 +218,7 @@ class Program
                     case Constants.AddAdmin: AddAdmin(user);break;
                     case Constants.RemoveAdmin: RemoveAdmin(user); break;
                     case Constants.SendTextAds: SendTextAds(user); break;
-                    case Constants.SendFullAds: break;
+                    case Constants.SendFullAds: SendFullAds(user); break;
                     case Constants.AddChannelLink: break;
                     case Constants.DeleteChenelLink: break;
                     default:ShowMenu(user);break;
@@ -802,6 +802,17 @@ class Program
           bot.SendTextMessageAsync(user.ChatId, "Ads was sent to all users successfully");
           ShowMenu(user);
       }
+
+      void SendFullAds(User user)
+      {
+          var text = "Send text for Ads";
+          user.UserStep = Step.SendFullAds;
+          userService.UpdateUser();
+          bot.SendTextMessageAsync(user.ChatId, text);
+          SendingBack(user);
+      }
+      
+      
       
     }
 }
