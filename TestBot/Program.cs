@@ -212,7 +212,7 @@ class Program
                     case Constants.ShowResultText: ShowResults(user); break;
                     case Constants.GetUsersMessage: GetMessage(user); break;
                     case Constants.ChangeAboutText: ShowChangingInfo(user); break;
-                    case Constants.AddAdmin: break;
+                    case Constants.AddAdmin: AddAdmin(user);break;
                     case Constants.RemoveAdmin: break;
                     case Constants.SendTextAds: break;
                     case Constants.SendFullAds: break;
@@ -693,7 +693,9 @@ class Program
           var text = "For Admin you should send chatId of user :) \n " +
                      "if you don't know of chatId of the user, you can get chatId of user from Telegram bot \n "+
                      "https://t.me/username_to_id_bot";
-          
+
+          user.UserStep = Step.SaveAdmin;
+          userService.UpdateUser();
           bot.SendTextMessageAsync(user.ChatId, text:text);
           SendingBack(user);
       }
