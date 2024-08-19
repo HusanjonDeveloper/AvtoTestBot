@@ -67,7 +67,7 @@ class Program
                         case Step.ChooseMenu: ChooseMenu(user, message); break;
                         case Step.ChooseTicketForTest: SaveTicket(user, message, messageId); break;
                         case Step.ChooseTicketForResult : ShowResultById(user, message, messageId); break;
-                        case Step.YesOrNo: YesOrNo( user, message,messageId);break;
+                        case Step.YesOrNo: YesOrNo( user, message,messageId); break;
                         case Step.ChooseTicketForAnalyze: ChooseTicketForAnalyze(user, message, messageId); break;
                         case Step.SaveMessageForAdmin: SaveMessageForAdmin(user, message); break;
                         case Step.ChooseChangingInfo: ChooseChangingInfo(user, message); break;
@@ -75,7 +75,8 @@ class Program
                         case Step.SavePhotoInfo: SavePhotoForInfo(user, update); break;
                         case Step.GetApplicationByDate: GetMessagesByDate(user,message); break;
                         case Step.SaveAdmin: SaveAdmin(user, message); break;
-                        case Step.RemoveAdmin: RemoveAdminFromData(user,message);break;
+                        case Step.RemoveAdmin: RemoveAdminFromData(user,message); break;
+                        case Step.SendTextAds : sendTextAdsToUser(user,message); break;
                     }   
                 }
             }
@@ -779,6 +780,27 @@ class Program
           ShowMenu(user);
           ShowMenu(forRemovingAdmin);
 
+      }
+
+      void SendTextAds(User user)
+      {
+          var text = "Send you  text ads for sending to everyone";
+          user.UserStep = Step.SendTextAds;
+          userService.UpdateUser();
+          bot.SendTextMessageAsync(user.ChatId, text);
+      }
+
+      void sendTextAdsToUser(User user, string text)
+      {
+          var users = userService.Users;
+          
+          foreach (var iteamUser in users)
+          {
+              bot.SendTextMessageAsync(iteamUser.ChatId, text);
+          }
+
+          bot.SendTextMessageAsync(user.ChatId, "Ads was sent to all users successfully");
+          ShowMenu(user);
       }
       
     }
