@@ -78,6 +78,7 @@ class Program
                         case Step.RemoveAdmin: RemoveAdminFromData(user,message); break;
                         case Step.SendTextAds : sendTextAdsToUser(user,message); break;
                         case Step.SendFullAds: SaveTextAndAskPhotoForAds(user,message); break;
+                        case Step.SendFullAdsToAllUsers: SendFullAdsToAllUsers(user,update); break;
                     }   
                 }
             }
@@ -812,8 +813,7 @@ class Program
           bot.SendTextMessageAsync(user.ChatId, text);
           SendingBack(user);
       }
-
-
+      
       void SaveTextAndAskPhotoForAds(User user, string text)
       {
           user.AdsMessage = text;
@@ -823,6 +823,37 @@ class Program
 
 
       }
+
+     async void SendFullAdsToAllUsers(User user, Update update)
+      {
+          if (update.Message!.Type == MessageType.Photo)
+          {
+              var photo = update.Message.Photo?.OrderByDescending(x => x.FileSize).First();
+              string photoFileId = photo?.FileId!;
+              
+              var file = await bot.GetFileAsync(photoFileId);
+
+              using var stream = new MemoryStream();
+              await bot.DownloadFileAsync(file.FilePath!, stream);
+
+              var adsPhoto = new InputOnlineFile(stream);
+              var users = userService.Users;
+              foreach (var iteamUser in users)
+              {
+                  await bot.SendPhotoAsync(iteamUser.ChatId, photo:adsPhoto, caption: user.AdsMessage);
+              }
+
+              await  bot.SendTextMessageAsync(user.ChatId, "Ads was send to all users Succsessfully");
+
+              ShowMenu(user);
+          }
+          else
+          {
+              await bot.SendTextMessageAsync(user.ChatId, "Please , send only photo !");
+          }
+      }
+      
+      
       
       
     }
