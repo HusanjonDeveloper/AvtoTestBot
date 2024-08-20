@@ -839,18 +839,20 @@ class Program
               await File.WriteAllBytesAsync(Path.Combine(fileUrl), stream.ToArray());
              
               var users = userService.Users;
+              CheckUserStatus(users);
               
               foreach (var iteamUser in users)
               {
+                  if(iteamUser.IsBlocked)
+                      continue;
+                  
                   var data = File.ReadAllBytes(fileUrl);
                   var ms = new MemoryStream(data);
                   var adsPhoto = new InputOnlineFile(ms);
-
                   await bot.SendPhotoAsync(iteamUser.ChatId, photo:adsPhoto, caption: user.AdsMessage);
               }
 
               await  bot.SendTextMessageAsync(user.ChatId, "Ads was send to all users Succsessfully");
-              
               File.Delete(fileUrl);
               ShowMenu(user);
           }
@@ -859,8 +861,23 @@ class Program
               await bot.SendTextMessageAsync(user.ChatId, "Please , send only photo !");
           }
       }
-      
-      
+
+
+      async void CheckUserStatus(List<User> users)
+      {
+          foreach (var user in users)
+          {
+              try
+              {
+                await  bot.SendTextMessageAsync(user.ChatId, "Checking status");
+              }
+              catch (Exception e)
+              {
+                  user.IsBlocked = true;
+                  userService.UpdateUser();
+              }
+          }
+      }
       
       
     }

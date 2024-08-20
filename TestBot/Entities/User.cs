@@ -2,6 +2,10 @@ namespace TestBot.Entities;
 
 public class User
 {
+    public User()
+    {
+        IsBlocked = false;
+    }
     public  long ChatId { get; set; }
     public  string FirstName { get; set; }
     public  string? UserName { get; set; }
@@ -11,5 +15,6 @@ public class User
     public TicketInfo? TicketInfo { get; set; }
 
     public string? AdsMessage;
+    public bool IsBlocked { get; set; }
 
 }
