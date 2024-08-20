@@ -861,8 +861,7 @@ class Program
               await bot.SendTextMessageAsync(user.ChatId, "Please , send only photo !");
           }
       }
-
-
+     
       async void CheckUserStatus(List<User> users)
       {
           foreach (var user in users)
@@ -878,6 +877,42 @@ class Program
               }
           }
       }
+
+     async void CheckingForChannel(User user)
+     {
+         var data = await bot.GetChatMemberAsync(chatId:1001818040326, userId: user.ChatId);
+         
+         if (data.Status == ChatMemberStatus.Administrator || data.Status == ChatMemberStatus.Creator ||
+             data.Status == ChatMemberStatus.Member)
+         {
+             
+         }
+         else
+         {
+             AskAboutJoining(user);
+         }
+     }
+
+     void AskAboutJoining(User user)
+     {
+         var buttons = new List<List<InlineKeyboardButton>>();
+
+         var loginUrl = new LoginUrl()
+         {
+             Url = "https://t.me/HusanjonBlog"
+         };
+         
+         var row = new List<InlineKeyboardButton>()
+         {
+             InlineKeyboardButton.WithLoginUrl("Husanjon Blog", loginUrl: loginUrl)
+         };
+         buttons.Add(row);
+
+         var keyboard = new  InlineKeyboardMarkup(buttons);
+
+         bot.SendTextMessageAsync(user.ChatId, "Please Join Channel !", replyMarkup: keyboard);
+         
+     }
       
       
     }
