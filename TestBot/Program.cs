@@ -36,9 +36,15 @@ class Program
 
             if (chesk)
                 return;
-
+            
             var user = userService.AddUser(chatId, username);
+        }
 
+        void UserActions(Update update)
+        {
+            var (chatId, username, message, messageId, isPollAnswer, chesk) = StaticService.GetData(update: update);
+            var user = userService.AddUser(chatId, username);
+            
             if (isPollAnswer)
             {
                 int selectedId = int.Parse(message);
@@ -49,7 +55,7 @@ class Program
                  ShowMenu(user);
             }
             else
-            {
+            { 
                 Console.WriteLine(message);
                 var isProcessing = CheckForProcessing(user);
 
