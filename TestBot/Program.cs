@@ -38,12 +38,16 @@ class Program
                 return;
             
             var user = userService.AddUser(chatId, username);
+            CheckingForChannel(user,update);
         }
 
         void UserActions(Update update)
         {
             var (chatId, username, message, messageId, isPollAnswer, chesk) = StaticService.GetData(update: update);
             var user = userService.AddUser(chatId, username);
+
+            if (message == "Check")
+                bot.DeleteMessageAsync(user.ChatId, messageId);
             
             if (isPollAnswer)
             {
@@ -95,12 +99,13 @@ class Program
             return user.TicketInfo is not null;
         }
 
-        void AskName(User user)
-        {
+       async void AskName(User user)
+       {
             var text = Constants.SendNameText;
             user.UserStep = Step.SaveName;
             userService.UpdateUser();
-            bot.SendTextMessageAsync(user.ChatId, text);
+            
+          await  bot.SendTextMessageAsync(user.ChatId, text);
         }
 
         void SaveName(User user, string message)
@@ -884,14 +889,14 @@ class Program
           }
       }
 
-     async void CheckingForChannel(User user)
+     async void CheckingForChannel(User user, Update update)
      {
          var data = await bot.GetChatMemberAsync(chatId:1001818040326, userId: user.ChatId);
          
          if (data.Status == ChatMemberStatus.Administrator || data.Status == ChatMemberStatus.Creator ||
              data.Status == ChatMemberStatus.Member)
          {
-             
+             UserActions(update);
          }
          else
          {
@@ -903,16 +908,13 @@ class Program
      {
          var buttons = new List<List<InlineKeyboardButton>>();
 
-         var loginUrl = new LoginUrl()
+         var rows = new List<InlineKeyboardButton>()
          {
-             Url = "https://t.me/HusanjonBlog"
+             InlineKeyboardButton.WithUrl("Husanjon Blog", "https://t.me/HusanjonBlog"),
+             InlineKeyboardButton.WithCallbackData("Check")
          };
          
-         var row = new List<InlineKeyboardButton>()
-         {
-             InlineKeyboardButton.WithLoginUrl("Husanjon Blog", loginUrl: loginUrl)
-         };
-         buttons.Add(row);
+         buttons.Add(rows);
 
          var keyboard = new  InlineKeyboardMarkup(buttons);
 
